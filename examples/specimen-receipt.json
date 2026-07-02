@@ -1,0 +1,54 @@
+{
+  "version": "0.1",
+  "receipt_id": "specimen-0001",
+  "specimen": true,
+  "notes": "Specimen receipt \u2014 demonstrates the format and verification flow. Not a live track-record entry.",
+  "created_at": "2026-06-30T18:00:00Z",
+  "question": "Crosswalk camera feed C, pedestrian track P-17, frame timestamp 18:00:00Z: which exit region does the pedestrian occupy 30 seconds after the freeze time?",
+  "prediction": {
+    "branches": [
+      {
+        "label": "north_exit",
+        "probability": 0.55
+      },
+      {
+        "label": "south_exit",
+        "probability": 0.2
+      },
+      {
+        "label": "east_exit",
+        "probability": 0.15
+      },
+      {
+        "label": "stays_in_frame",
+        "probability": 0.1
+      }
+    ]
+  },
+  "resolution_deadline": "2026-06-30T18:01:00Z",
+  "resolution_source": {
+    "description": "Ground-truth exit region read off the archived camera frame at 18:00:30Z by a human annotator who did not see the prediction."
+  },
+  "outcome": {
+    "resolved_at": "2026-06-30T18:02:11Z",
+    "label": "north_exit",
+    "source_url": "https://example.com/frames/C/2026-06-30T180030Z"
+  },
+  "frozen_hash": "7ee02cec942e823f2b122d9d27d7a5ec9994fd546f962654771e85e2ade50f34",
+  "scores": {
+    "brier": 0.27499999999999997,
+    "log_loss": 0.5978370007556204
+  },
+  "baseline_scores": {
+    "uniform": {
+      "probabilities": {
+        "north_exit": 0.25,
+        "south_exit": 0.25,
+        "east_exit": 0.25,
+        "stays_in_frame": 0.25
+      },
+      "brier": 0.75,
+      "log_loss": 1.3862943611198906
+    }
+  }
+}

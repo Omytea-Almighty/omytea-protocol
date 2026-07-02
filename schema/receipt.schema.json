@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://omyteaai.com/schema/receipt.schema.json",
+  "title": "Omytea Prediction Receipt",
+  "description": "A tamper-evident record of one machine prediction: frozen before the fact, resolved by an independent source, mechanically scored. The canonical frozen payload is the JSON object containing the fields receipt_id, created_at, question, prediction, resolution_deadline, resolution_source (plus specimen, if present), serialized with json.dumps(payload, sort_keys=True, separators=(',',':'), ensure_ascii=True) and hashed with SHA-256 to produce frozen_hash. Anyone can recompute the hash and the scores from the receipt alone.",
+  "type": "object",
+  "required": [
+    "version",
+    "receipt_id",
+    "created_at",
+    "question",
+    "prediction",
+    "resolution_deadline",
+    "resolution_source",
+    "frozen_hash"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "description": "Receipt format version.",
+      "type": "string",
+      "const": "0.1"
+    },
+    "receipt_id": {
+      "description": "Unique identifier for this receipt.",
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "description": "Freeze time: when the prediction was committed, ISO 8601 UTC. Everything in the frozen payload was fixed at this moment.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "question": {
+      "description": "Plain-language description of the target: what is being predicted, about what, over what window.",
+      "type": "string",
+      "minLength": 1
+    },
+    "prediction": {
+      "description": "The frozen probabilistic prediction. Exactly one of `branches` (discrete outcome distribution) or `quantiles` (continuous outcome distribution).",
+      "type": "object",
+      "oneOf": [
+        { "required": ["branches"], "not": { "required": ["quantiles"] } },
+        { "required": ["quantiles"], "not": { "required": ["branches"] } }
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "branches": {
+          "description": "Discrete distribution over mutually exclusive outcome labels. Probabilities must sum to 1 (tolerance 1e-6).",
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "required": ["label", "probability"],
+            "additionalProperties": false,
+            "properties": {
+              "label": { "type": "string", "minLength": 1 },
+              "probability": { "type": "number", "minimum": 0, "maximum": 1 }
+            }
+          }
+        },
+        "quantiles": {
+          "description": "Continuous predictive distribution given as quantiles. `levels` are strictly increasing in (0,1); `values` are the corresponding non-decreasing quantile values.",
+          "type": "object",
+          "required": ["levels", "values"],
+          "additionalProperties": false,
+          "properties": {
+            "levels": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1 }
+            },
+            "values": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    "resolution_deadline": {
+      "description": "Horizon: the time by which the outcome must be resolvable, ISO 8601 UTC.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "resolution_source": {
+      "description": "How the outcome will be determined, independently of the predictor.",
+      "type": "object",
+      "required": ["description"],
+      "additionalProperties": false,
+      "properties": {
+        "description": { "type": "string", "minLength": 1 },
+        "url": { "type": "string" }
+      }
+    },
+    "frozen_hash": {
+      "description": "SHA-256 hex digest of the canonical frozen payload (see the top-level description for the exact serialization).",
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "outcome": {
+      "description": "The resolved outcome. Added at resolution time; absent while the prediction is pending. `label` for branch predictions, `value` for quantile predictions.",
+      "type": "object",
+      "required": ["resolved_at"],
+      "additionalProperties": false,
+      "properties": {
+        "resolved_at": { "type": "string", "format": "date-time" },
+        "label": { "type": "string", "minLength": 1 },
+        "value": { "type": "number" },
+        "source_url": { "type": "string" }
+      }
+    },
+    "scores": {
+      "description": "Mechanical scores of the frozen prediction against the resolved outcome. Recomputable by anyone from `prediction` + `outcome` alone. `brier` and `log_loss` for branch predictions; `crps` for quantile predictions. Lower is better for all.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "brier": { "type": "number", "minimum": 0 },
+        "log_loss": { "type": "number", "minimum": 0 },
+        "crps": { "type": "number", "minimum": 0 }
+      }
+    },
+    "baseline_scores": {
+      "description": "Scores of named reference forecasts (e.g. `uniform`, `persistence`) against the same outcome. Each baseline carries its own full distribution so its scores are recomputable from the receipt alone.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "probabilities": {
+            "description": "Baseline discrete distribution: label -> probability.",
+            "type": "object",
+            "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 }
+          },
+          "quantiles": {
+            "type": "object",
+            "required": ["levels", "values"],
+            "additionalProperties": false,
+            "properties": {
+              "levels": { "type": "array", "items": { "type": "number" } },
+              "values": { "type": "array", "items": { "type": "number" } }
+            }
+          },
+          "brier": { "type": "number", "minimum": 0 },
+          "log_loss": { "type": "number", "minimum": 0 },
+          "crps": { "type": "number", "minimum": 0 }
+        }
+      }
+    },
+    "specimen": {
+      "description": "True if this receipt is an illustrative specimen, not a live track-record entry. Included in the frozen payload when present.",
+      "type": "boolean"
+    },
+    "notes": {
+      "description": "Free-text annotation. NOT part of the frozen payload.",
+      "type": "string"
+    }
+  }
+}
