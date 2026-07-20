@@ -1,5 +1,7 @@
 # omytea-protocol
 
+> **Organization source of truth:** [`Omytea-Almighty/omytea-protocol`](https://github.com/Omytea-Almighty/omytea-protocol). Humans and agents must read [`ORG-SYNC.md`](ORG-SYNC.md) before working. Reviewed commits are queued for fail-closed organization sync; automation never stages or commits dirty work and never changes visibility.
+
 Receipt schema, scoring math, and verifier for machine predictions.
 
 This repository is the **verification half of a settlement layer for machine

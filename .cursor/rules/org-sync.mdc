@@ -1,0 +1,11 @@
+---
+description: Binding Omytea-Almighty Git, visibility, and publication contract
+alwaysApply: true
+---
+
+Read `ORG-SYNC.md` before working. Canonical remote:
+`Omytea-Almighty/omytea-protocol`. Commit only deliberately reviewed paths. The
+post-commit transport may push that existing commit, but must never stage,
+commit, pull, merge, rebase, force-push, delete refs, change visibility, bypass
+hooks, or bypass a curated-public receipt. On any mismatch, preserve the local
+commit and report `BLOCKED_*`.

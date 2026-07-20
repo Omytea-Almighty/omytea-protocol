@@ -1,0 +1,92 @@
+name: Organization policy
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify Omytea-Almighty contract
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout exact revision without persisted credentials
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+      - name: Verify pinned repository policy
+        env:
+          ACTUAL_REPOSITORY: ${{ github.repository }}
+          ACTUAL_REPOSITORY_ID: ${{ github.event.repository.id }}
+          ACTUAL_VISIBILITY: ${{ github.event.repository.visibility }}
+          EXPECTED_REPOSITORY: Omytea-Almighty/omytea-protocol
+          EXPECTED_REPOSITORY_ID: "1286751239"
+          EXPECTED_VISIBILITY: public
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          manifest_path = Path(".github/omytea-org-sync.json")
+          manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+          expected = {
+              "canonical_owner": "Omytea-Almighty",
+              "repository": "omytea-protocol",
+              "repository_id": 1286751239,
+              "expected_visibility": "public",
+              "default_branch": "master",
+          }
+          failures = []
+          for key, value in expected.items():
+              if manifest.get(key) != value:
+                  failures.append(f"manifest {key}: {manifest.get(key)!r} != {value!r}")
+
+          live = {
+              "repository": os.environ.get("ACTUAL_REPOSITORY", ""),
+              "repository_id": os.environ.get("ACTUAL_REPOSITORY_ID", ""),
+              "visibility": os.environ.get("ACTUAL_VISIBILITY", ""),
+          }
+          if live["repository"] != os.environ["EXPECTED_REPOSITORY"]:
+              failures.append(f"repository identity mismatch: {live['repository']!r}")
+          if live["repository_id"] != os.environ["EXPECTED_REPOSITORY_ID"]:
+              failures.append(f"numeric repository ID mismatch: {live['repository_id']!r}")
+          if live["visibility"] != os.environ["EXPECTED_VISIBILITY"]:
+              failures.append(f"visibility mismatch: {live['visibility']!r}")
+
+          required = [
+              Path("README.md"),
+              Path("ORG-SYNC.md"),
+              Path("AGENTS.md"),
+              Path("CLAUDE.md"),
+              Path(".cursor/rules/org-sync.mdc"),
+              Path(".github/copilot-instructions.md"),
+          ]
+          for path in required:
+              if not path.is_file():
+                  failures.append(f"required policy entrypoint missing: {path}")
+
+          if Path("ORG-SYNC.md").is_file():
+              policy = Path("ORG-SYNC.md").read_text(encoding="utf-8")
+              for marker in (
+                  "never decides what to commit",
+                  "must **never**",
+                  "change the visibility",
+                  "remote branch SHA reads back equal to local HEAD",
+              ):
+                  if marker not in policy:
+                      failures.append(f"ORG-SYNC.md missing invariant: {marker}")
+
+          if failures:
+              for failure in failures:
+                  print(f"BLOCKED_POLICY_DRIFT: {failure}")
+              raise SystemExit(1)
+          print("PASS: pinned organization identity, visibility, and policy entrypoints")
+          PY
