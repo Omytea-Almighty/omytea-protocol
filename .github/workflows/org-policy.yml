@@ -39,7 +39,7 @@ jobs:
           manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
           expected = {
               "schema_version": 1,
-              "policy_version": "2026-07-19.3",
+              "policy_version": "2026-07-19.4",
               "canonical_owner": "Omytea-Almighty",
               "repository": "omytea-protocol",
               "repository_id": 1286751239,
@@ -82,7 +82,7 @@ jobs:
                   "never decides what to commit",
                   "must **never**",
                   "change the visibility",
-                  "remote branch SHA reads back equal to local HEAD",
+                  "remote branch SHA reads back equal to the queued SHA",
               ):
                   if marker not in policy:
                       failures.append(f"ORG-SYNC.md missing invariant: {marker}")

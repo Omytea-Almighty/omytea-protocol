@@ -5,13 +5,16 @@ alwaysApply: true
 
 Read `ORG-SYNC.md` before working. Canonical remote:
 `Omytea-Almighty/omytea-protocol`. Commit only deliberately reviewed paths. The
-post-commit transport may push that existing commit, but must never stage,
-commit, pull, merge, rebase, force-push, delete refs, change visibility, use
-`git push --no-verify`, or bypass managed sync, security, publication, or
-release gates. A repository-local `git commit --no-verify` exception is allowed
-only when the repository's documented hook policy expressly permits it and the
-operator records why. On any mismatch, preserve the local commit and report
-`BLOCKED_*`.
+managed `post-commit` and `post-rewrite` hooks queue that existing commit.
+Ordinary direct push is denied; registered linked worktrees are supported.
+Never stage, commit, pull, merge, rebase, force-push, delete refs, change
+visibility, use `git push --no-verify`, set or override `core.hooksPath`, or
+bypass managed sync, security, publication, or release gates. A
+repository-local `git commit --no-verify` exception is allowed only when the
+repository's documented hook policy expressly permits it and the operator
+records why. On any mismatch, preserve the local commit and report `BLOCKED_*`.
+`Adonyth/almighty` is excluded; the private `omytea-org-sync` source is
+manual-review/manual-deploy and never self-syncs.
 This is `direct-public`: each intentional commit is a publication decision.
 Secret scanning does not judge PII, licensing, research, or commercial
 sensitivity; never mirror private or uncommitted source-tree content here.

@@ -1,7 +1,7 @@
 # omytea-protocol
 
 <!-- OMYTEA_ORG_SYNC_README_START -->
-> **Organization source of truth:** [`Omytea-Almighty/omytea-protocol`](https://github.com/Omytea-Almighty/omytea-protocol). Humans and agents must read [`ORG-SYNC.md`](ORG-SYNC.md) before working. Reviewed commits are queued for fail-closed organization sync; automation never stages or commits dirty work and never changes visibility.
+> **Organization source of truth:** [`Omytea-Almighty/omytea-protocol`](https://github.com/Omytea-Almighty/omytea-protocol). Humans and agents must read [`ORG-SYNC.md`](ORG-SYNC.md) before working. Managed commit/rewrite hooks queue reviewed commits; ordinary direct push is denied; registered linked worktrees are supported. Automation never stages or commits dirty work, changes visibility, or bypasses hooks.
 > This repository is public: every intentional commit is a publication decision. Secret scanning is not a privacy, PII, licensing, research, or commercial-sensitivity review.
 <!-- OMYTEA_ORG_SYNC_README_END -->
 
