@@ -2,7 +2,7 @@
 
 > **START HERE — binding for humans and agents.** Canonical repository:
 > `Omytea-Almighty/omytea-protocol` (GitHub repository ID `1286751239`). Expected
-> visibility: **public**. Policy version: `2026-07-19.1`.
+> visibility: **public**. Policy version: `2026-07-19.2`.
 
 ## One-screen rule
 
@@ -44,8 +44,13 @@ Automation must **never**:
 - pull, merge, rebase, reset, force-push, delete a ref, push a tag, or rewrite history;
 - push when owner, numeric repository ID, visibility, origin, branch ancestry, or
   public-release evidence is absent or mismatched;
-- print secret values, execute repository code as a preflight, bypass hooks with
-  `--no-verify`, or silently edit this policy/verifier to make a failure pass.
+- print secret values, execute repository code as a preflight, bypass any
+  organization-managed sync, security, publication, or release gate, or
+  silently edit this policy/verifier to make a failure pass;
+- use `git push --no-verify`. A repository-local `git commit --no-verify`
+  exception is allowed only when that repository's documented hook policy
+  expressly permits it and the operator records why; it never bypasses the
+  organization sync hook.
 
 A dirty working tree may coexist with a push of an earlier reviewed commit, but
 those dirty bytes remain strictly local and are reported. A non-fast-forward or
