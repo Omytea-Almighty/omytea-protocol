@@ -82,7 +82,7 @@ jobs:
                   "never decides what to commit",
                   "must **never**",
                   "change the visibility",
-                  "remote branch SHA reads back equal to the queued SHA",
+                  "remote reads back equal to the verified local",
               ):
                   if marker not in policy:
                       failures.append(f"ORG-SYNC.md missing invariant: {marker}")

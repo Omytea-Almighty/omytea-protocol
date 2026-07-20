@@ -9,9 +9,10 @@
 Work normally, review deliberately, and make an intentional commit. Managed
 `post-commit` and `post-rewrite` hooks queue the already-created commit for
 the organization sync controller. Ordinary direct `git push` is denied. The
-controller may perform a normal fast-forward push of the exact queued branch/ref only
-after it verifies repository identity, expected visibility, origin, ancestry,
-committed-content safety, policy/workflow definitions, and the remote SHA.
+controller may perform a normal fast-forward push of the verified current head
+of the exact queued branch/ref only after it proves the queued SHA is an
+ancestor and verifies repository identity, expected visibility, origin,
+ancestry, committed-content safety, policy/workflow definitions, and the remote SHA.
 Actions health is audited after publication. The controller never decides what
 to commit.
 
@@ -42,10 +43,12 @@ synchronize. Never copy or rsync private or uncommitted source-tree content.
 5. Registered linked worktrees are supported only when their common Git directory
    exactly matches the canonical checkout; arbitrary clones or forged pointers block.
 6. The managed `pre-push` hook denies ordinary direct pushes. Do not bypass it.
-7. The single-writer controller fetches metadata and refs, then either pushes the
-   exact queued branch/ref fast-forward through its isolated transport or records a visible
+7. The single-writer controller fetches metadata and refs, proves each queued SHA
+   is an ancestor of the verified current local branch head, then either pushes
+   that head fast-forward through its isolated transport or records a visible
    `BLOCKED_*` result.
-8. Success exists only when the remote branch SHA reads back equal to the queued SHA.
+8. Success exists only when the remote reads back equal to the verified local
+   branch head; every completed queued SHA must be an ancestor covered by that head.
 9. A periodic full audit reconciles registered current branches, policy,
    governance, and remote drift. Inactive unqueued refs are outside automatic recovery.
 
@@ -69,8 +72,9 @@ Automation must **never**:
 A dirty working tree may coexist with a push of an earlier reviewed commit, but
 those dirty bytes remain strictly local and are reported. A non-fast-forward or
 unreachable API leaves the commit local and produces a durable blocked receipt.
-The same rule applies in a controller-registered linked worktree: only the exact
-committed SHA is eligible, never its uncommitted working-tree bytes.
+The same rule applies in a controller-registered linked worktree: only committed
+branch history through the verified current head is eligible; uncommitted
+working-tree bytes never are.
 
 ## Lanes and public-release boundary
 
