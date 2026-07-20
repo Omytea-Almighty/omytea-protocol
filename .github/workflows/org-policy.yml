@@ -38,6 +38,7 @@ jobs:
           manifest_path = Path(".github/omytea-org-sync.json")
           manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
           expected = {
+              "policy_version": "2026-07-19.2",
               "canonical_owner": "Omytea-Almighty",
               "repository": "omytea-protocol",
               "repository_id": 1286751239,
