@@ -78,13 +78,14 @@ jobs:
 
           if Path("ORG-SYNC.md").is_file():
               policy = Path("ORG-SYNC.md").read_text(encoding="utf-8")
+              normalized_policy = " ".join(policy.split())
               for marker in (
                   "never decides what to commit",
                   "must **never**",
                   "change the visibility",
                   "remote reads back equal to the verified local",
               ):
-                  if marker not in policy:
+                  if marker not in normalized_policy:
                       failures.append(f"ORG-SYNC.md missing invariant: {marker}")
 
           if failures:
