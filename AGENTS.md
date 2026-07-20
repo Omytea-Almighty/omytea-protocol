@@ -3,7 +3,7 @@
 
 Read [`ORG-SYNC.md`](ORG-SYNC.md) before editing, committing, or publishing.
 The only canonical GitHub repository is
-`https://github.com/Omytea-Almighty/omytea-protocol.git` (SSH form is also allowed).
+`https://github.com/Omytea-Almighty/omytea-protocol.git`.
 
 A normal reviewed commit may be queued for safe automatic push. Never automate
 `git add` or commit creation; never pull, merge, rebase, force-push, delete refs,

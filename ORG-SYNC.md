@@ -29,7 +29,7 @@ synchronize. Never copy or rsync private or uncommitted source-tree content.
 ## Required flow
 
 1. Read this file and the nearest `AGENTS.md` before editing.
-2. Confirm `origin` is exactly the organization HTTPS or SSH URL for this repo.
+2. Confirm `origin` is exactly `https://github.com/Omytea-Almighty/omytea-protocol.git`.
 3. Stage only reviewed paths and create a normal commit under this repo's rules.
 4. The composable `post-commit`/rewrite hook durably queues the current SHA.
 5. The single-writer controller fetches metadata and refs, then either pushes the
@@ -44,7 +44,7 @@ Automation must **never**:
 - run `git add`, create a commit, include uncommitted files, or alter the index;
 - pull, merge, rebase, reset, force-push, delete a ref, push a tag, or rewrite history;
 - push when owner, numeric repository ID, visibility, origin, branch ancestry, or
-  public-release evidence is absent or mismatched;
+  required policy or workflow evidence is absent or mismatched;
 - print secret values, execute repository code as a preflight, bypass any
   organization-managed sync, security, publication, or release gate, or
   silently edit this policy/verifier to make a failure pass;
