@@ -12,3 +12,6 @@ release gates. A repository-local `git commit --no-verify` exception is allowed
 only when the repository's documented hook policy expressly permits it and the
 operator records why. On any mismatch, preserve the local commit and report
 `BLOCKED_*`.
+This is `direct-public`: each intentional commit is a publication decision.
+Secret scanning does not judge PII, licensing, research, or commercial
+sensitivity; never mirror private or uncommitted source-tree content here.

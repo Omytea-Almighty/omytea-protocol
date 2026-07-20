@@ -2,7 +2,7 @@
 
 > **START HERE — binding for humans and agents.** Canonical repository:
 > `Omytea-Almighty/omytea-protocol` (GitHub repository ID `1286751239`). Expected
-> visibility: **public**. Policy version: `2026-07-19.2`.
+> visibility: **public**. Policy version: `2026-07-19.3`.
 
 ## One-screen rule
 
@@ -12,13 +12,14 @@ The controller may perform a normal fast-forward push of the current branch only
 after it verifies repository identity, expected visibility, origin, ancestry,
 committed-content safety, and the remote SHA. It never decides what to commit.
 
-Every committed byte is public. Review for secrets and private references before committing; successful committed branches may then synchronize.
+Every committed byte is public. An intentional commit is the publication
+decision; only commits created in this independent public checkout may
+synchronize. Never copy or rsync private or uncommitted source-tree content.
 
 ## Authority
 
 - The canonical owner is `Omytea-Almighty`; the default branch is `master`.
-- Organization members can read private project repositories through the
-  organization base permission. Non-members cannot.
+- This repository is public; organization membership is not required to read it.
 - Ordinary members may create repositories and upload to repositories they own.
   They must not modify, delete, transfer, archive, or change the visibility of
   another owner's repository without explicit authorization.
@@ -59,6 +60,12 @@ unreachable API leaves the commit local and produces a durable blocked receipt.
 ## Lanes and public-release boundary
 
 This repository is lane `direct-public`.
+Every intentional commit in this public checkout is a publication decision.
+The automated scan detects only configured high-confidence secret patterns; it
+does not decide whether ordinary text, PII, licensing, research, or commercial
+content is suitable for publication. Never copy or rsync uncommitted or private
+parent/source-tree content into this repository; publish only deliberately
+reviewed commits created inside this independent public checkout.
 
 - `direct-private`: synchronize committed objects only after private visibility
   is confirmed live.

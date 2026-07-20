@@ -38,12 +38,14 @@ jobs:
           manifest_path = Path(".github/omytea-org-sync.json")
           manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
           expected = {
-              "policy_version": "2026-07-19.2",
+              "schema_version": 1,
+              "policy_version": "2026-07-19.3",
               "canonical_owner": "Omytea-Almighty",
               "repository": "omytea-protocol",
               "repository_id": 1286751239,
               "expected_visibility": "public",
               "default_branch": "master",
+              "lane": "direct-public",
           }
           failures = []
           for key, value in expected.items():
