@@ -1,0 +1,919 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "20251127-p1",
+      "target_week": "20251215",
+      "accepted": true,
+      "coverage_complete": true,
+      "expected_count": 44,
+      "compared": 44,
+      "missing_computed": [],
+      "missing_reference": [],
+      "max_absolute_difference": 0.0004982246128206799,
+      "tolerance": 0.0005,
+      "rows": [
+        {
+          "model": "AIFC_WRcast",
+          "computed": -0.41742081118492824,
+          "published": -0.417,
+          "absolute_difference": 0.0004208111849282603
+        },
+        {
+          "model": "AIFS_AIFSgaia",
+          "computed": 0.051011662779846034,
+          "published": 0.051,
+          "absolute_difference": 1.166277984603753e-05
+        },
+        {
+          "model": "AIFS_AIFShera",
+          "computed": 0.00744435219355144,
+          "published": 0.007,
+          "absolute_difference": 0.0004443521935514399
+        },
+        {
+          "model": "AIFS_AIFSthalassa",
+          "computed": 0.016951933480381154,
+          "published": 0.017,
+          "absolute_difference": 4.8066519618847336e-05
+        },
+        {
+          "model": "CAMExpedition_SBCDiff",
+          "computed": -0.32336305467443793,
+          "published": -0.323,
+          "absolute_difference": 0.0003630546744379237
+        },
+        {
+          "model": "CLINT_CLINTDD",
+          "computed": -0.03412897976107887,
+          "published": -0.034,
+          "absolute_difference": 0.00012897976107886788
+        },
+        {
+          "model": "CLINT_CLINTMF",
+          "computed": -0.046788658451685006,
+          "published": -0.047,
+          "absolute_difference": 0.0002113415483149944
+        },
+        {
+          "model": "CLINT_CLINTSE",
+          "computed": -0.2304958165983393,
+          "published": -0.23,
+          "absolute_difference": 0.000495816598339277
+        },
+        {
+          "model": "CMAandFDU_Fengshun",
+          "computed": 0.05341040646330564,
+          "published": 0.053,
+          "absolute_difference": 0.00041040646330563896
+        },
+        {
+          "model": "CMAandFDU_FengshunAdjust",
+          "computed": -0.05600682428564663,
+          "published": -0.056,
+          "absolute_difference": 6.824285646626904e-06
+        },
+        {
+          "model": "CMAandFDU_FengshunHybrid",
+          "computed": -0.05841048091612677,
+          "published": -0.058,
+          "absolute_difference": 0.00041048091612676946
+        },
+        {
+          "model": "CliMA_CliMAWeather",
+          "computed": -0.037716849079576065,
+          "published": -0.038,
+          "absolute_difference": 0.00028315092042393436
+        },
+        {
+          "model": "CliMA_CliMAWeather2",
+          "computed": -0.01927351230277341,
+          "published": -0.019,
+          "absolute_difference": 0.00027351230277341057
+        },
+        {
+          "model": "Fahamu_FahamuAIFSv1",
+          "computed": -0.12388006669545804,
+          "published": -0.124,
+          "absolute_difference": 0.00011993330454196371
+        },
+        {
+          "model": "FengWuW2S_FengWu",
+          "computed": -0.01860098291796164,
+          "published": -0.019,
+          "absolute_difference": 0.00039901708203836025
+        },
+        {
+          "model": "FengWuW2S_FengWu2",
+          "computed": -0.006565002174398371,
+          "published": -0.007,
+          "absolute_difference": 0.00043499782560162906
+        },
+        {
+          "model": "HAPPY_AZN",
+          "computed": -0.2547857756319585,
+          "published": -0.255,
+          "absolute_difference": 0.00021422436804152678
+        },
+        {
+          "model": "IgnisNeuralis42_GCast42",
+          "computed": -0.015734743313524424,
+          "published": -0.016,
+          "absolute_difference": 0.0002652566864755762
+        },
+        {
+          "model": "JR_slowMamba",
+          "computed": 0.004062536046583576,
+          "published": 0.004,
+          "absolute_difference": 6.253604658357573e-05
+        },
+        {
+          "model": "KITKangu_KanguParametricPrediction",
+          "computed": 0.0,
+          "published": 0.0,
+          "absolute_difference": 0.0
+        },
+        {
+          "model": "KITKangu_KanguPlusPlus",
+          "computed": 0.0,
+          "published": 0.0,
+          "absolute_difference": 0.0
+        },
+        {
+          "model": "KITKangu_KanguS2SEasyUQ",
+          "computed": 0.0,
+          "published": 0.0,
+          "absolute_difference": 0.0
+        },
+        {
+          "model": "LP_LPM",
+          "computed": 0.00649822461282068,
+          "published": 0.006,
+          "absolute_difference": 0.0004982246128206799
+        },
+        {
+          "model": "MicroEnsemble_Huracan",
+          "computed": 0.005725650249186143,
+          "published": 0.006,
+          "absolute_difference": 0.0002743497508138574
+        },
+        {
+          "model": "MicroEnsemble_MicroDuet",
+          "computed": 0.009103083182386063,
+          "published": 0.009,
+          "absolute_difference": 0.00010308318238606319
+        },
+        {
+          "model": "MicroEnsemble_StillLearning",
+          "computed": -0.00017139083028316904,
+          "published": -0.0,
+          "absolute_difference": 0.00017139083028316904
+        },
+        {
+          "model": "NSFNCAR_subCESMulator",
+          "computed": -0.44994673522593565,
+          "published": -0.45,
+          "absolute_difference": 5.326477406436547e-05
+        },
+        {
+          "model": "Neuralio_NeuWeather",
+          "computed": -0.803784262728652,
+          "published": -0.804,
+          "absolute_difference": 0.00021573727134804876
+        },
+        {
+          "model": "NewMeteor_BaseModel",
+          "computed": -0.32674220688040756,
+          "published": -0.327,
+          "absolute_difference": 0.0002577931195924532
+        },
+        {
+          "model": "NewMeteor_ExtraBaseModel",
+          "computed": -0.30846990229154514,
+          "published": -0.308,
+          "absolute_difference": 0.0004699022915451434
+        },
+        {
+          "model": "NewMeteor_NewMet",
+          "computed": -0.18229286622576168,
+          "published": -0.182,
+          "absolute_difference": 0.00029286622576168986
+        },
+        {
+          "model": "NordicS2S_NordicS2S1",
+          "computed": -0.15908549146969286,
+          "published": -0.159,
+          "absolute_difference": 8.549146969286103e-05
+        },
+        {
+          "model": "NordicS2S_NordicS2S2",
+          "computed": -0.07587852537585382,
+          "published": -0.076,
+          "absolute_difference": 0.0001214746241461756
+        },
+        {
+          "model": "NordicS2S_NordicS2S3",
+          "computed": -0.12966836147422334,
+          "published": -0.13,
+          "absolute_difference": 0.0003316385257766674
+        },
+        {
+          "model": "NvidiaDistill_DLESyM10K",
+          "computed": -0.0339110788050343,
+          "published": -0.034,
+          "absolute_difference": 8.892119496570206e-05
+        },
+        {
+          "model": "Qronon_QRCML",
+          "computed": -0.4887070722891118,
+          "published": -0.489,
+          "absolute_difference": 0.00029292771088818004
+        },
+        {
+          "model": "SAIS2S_SAI",
+          "computed": -0.42528254955889944,
+          "published": -0.425,
+          "absolute_difference": 0.00028254955889944755
+        },
+        {
+          "model": "SwissAIClimate_ESFM",
+          "computed": -0.050953403373656725,
+          "published": -0.051,
+          "absolute_difference": 4.659662634327183e-05
+        },
+        {
+          "model": "TAICHI_TAICHIAI",
+          "computed": -0.8751561269048287,
+          "published": -0.875,
+          "absolute_difference": 0.00015612690482869063
+        },
+        {
+          "model": "UWAtmosNVIDIA_DLESyMS2Sv1",
+          "computed": 0.01843853771465387,
+          "published": 0.018,
+          "absolute_difference": 0.00043853771465387006
+        },
+        {
+          "model": "XindaL_ISOX",
+          "computed": -1.0958100623611227,
+          "published": -1.096,
+          "absolute_difference": 0.00018993763887742432
+        },
+        {
+          "model": "scienceAI_findforecast",
+          "computed": -0.03500413493632193,
+          "published": -0.035,
+          "absolute_difference": 4.134936321925631e-06
+        },
+        {
+          "model": "scienceAI_ngcm",
+          "computed": -0.024082784760961706,
+          "published": -0.024,
+          "absolute_difference": 8.278476096170578e-05
+        },
+        {
+          "model": "scienceAI_zephyr",
+          "computed": -0.06348389028643497,
+          "published": -0.063,
+          "absolute_difference": 0.00048389028643497367
+        }
+      ]
+    },
+    {
+      "case": "20251120-p2",
+      "target_week": "20251215",
+      "accepted": true,
+      "coverage_complete": true,
+      "expected_count": 49,
+      "compared": 49,
+      "missing_computed": [],
+      "missing_reference": [],
+      "max_absolute_difference": 0.0004917962853159888,
+      "tolerance": 0.0005,
+      "rows": [
+        {
+          "model": "AIFC_WRcast",
+          "computed": -0.41131164527165054,
+          "published": -0.411,
+          "absolute_difference": 0.00031164527165056244
+        },
+        {
+          "model": "AIFS_AIFSgaia",
+          "computed": -0.011008418285512134,
+          "published": -0.011,
+          "absolute_difference": 8.418285512134388e-06
+        },
+        {
+          "model": "AIFS_AIFShera",
+          "computed": -0.02313125310713282,
+          "published": -0.023,
+          "absolute_difference": 0.0001312531071328213
+        },
+        {
+          "model": "AIFS_AIFSthalassa",
+          "computed": -0.06331567873558064,
+          "published": -0.063,
+          "absolute_difference": 0.00031567873558063786
+        },
+        {
+          "model": "CAMExpedition_SBCDiff",
+          "computed": -0.3346716410977164,
+          "published": -0.335,
+          "absolute_difference": 0.00032835890228360975
+        },
+        {
+          "model": "CHAIMAEOUAZRI_ChaimaeModel",
+          "computed": -0.8684751756374467,
+          "published": -0.868,
+          "absolute_difference": 0.0004751756374467009
+        },
+        {
+          "model": "CLINT_CLINTDD",
+          "computed": -0.056898188554329376,
+          "published": -0.057,
+          "absolute_difference": 0.00010181144567062567
+        },
+        {
+          "model": "CLINT_CLINTMF",
+          "computed": -0.05050820371468401,
+          "published": -0.051,
+          "absolute_difference": 0.0004917962853159888
+        },
+        {
+          "model": "CLINT_CLINTSE",
+          "computed": -0.2395607879324697,
+          "published": -0.24,
+          "absolute_difference": 0.0004392120675302813
+        },
+        {
+          "model": "CMAandFDU_Fengshun",
+          "computed": 0.04045918626943035,
+          "published": 0.04,
+          "absolute_difference": 0.0004591862694303464
+        },
+        {
+          "model": "CMAandFDU_FengshunAdjust",
+          "computed": -0.03792579076981051,
+          "published": -0.038,
+          "absolute_difference": 7.420923018949116e-05
+        },
+        {
+          "model": "CMAandFDU_FengshunHybrid",
+          "computed": -0.056296305580390005,
+          "published": -0.056,
+          "absolute_difference": 0.0002963055803900036
+        },
+        {
+          "model": "CliMA_CliMAWeather",
+          "computed": -0.02448387290206533,
+          "published": -0.024,
+          "absolute_difference": 0.00048387290206532846
+        },
+        {
+          "model": "CliMA_CliMAWeather2",
+          "computed": 0.006127113809159979,
+          "published": 0.006,
+          "absolute_difference": 0.00012711380915997848
+        },
+        {
+          "model": "Fahamu_FahamuAIFSv1",
+          "computed": -0.017749424421995563,
+          "published": -0.018,
+          "absolute_difference": 0.0002505755780044354
+        },
+        {
+          "model": "FengWuW2S_FengWu",
+          "computed": -0.054255479656895256,
+          "published": -0.054,
+          "absolute_difference": 0.00025547965689525637
+        },
+        {
+          "model": "FengWuW2S_FengWu2",
+          "computed": -0.1176500661899007,
+          "published": -0.118,
+          "absolute_difference": 0.0003499338100992899
+        },
+        {
+          "model": "FengWuW2S_FengWu3",
+          "computed": -0.025192388891713824,
+          "published": -0.025,
+          "absolute_difference": 0.0001923888917138225
+        },
+        {
+          "model": "HAPPY_AZN",
+          "computed": -0.30001557513382116,
+          "published": -0.3,
+          "absolute_difference": 1.5575133821166265e-05
+        },
+        {
+          "model": "HYT_WenDingNet",
+          "computed": -0.12166329400213916,
+          "published": -0.122,
+          "absolute_difference": 0.0003367059978608422
+        },
+        {
+          "model": "IgnisNeuralis42_GCast42",
+          "computed": -0.01595219328686892,
+          "published": -0.016,
+          "absolute_difference": 4.7806713131079426e-05
+        },
+        {
+          "model": "JR_slowMamba",
+          "computed": 0.008153272175876913,
+          "published": 0.008,
+          "absolute_difference": 0.00015327217587691316
+        },
+        {
+          "model": "KITKangu_KanguParametricPrediction",
+          "computed": 0.0,
+          "published": 0.0,
+          "absolute_difference": 0.0
+        },
+        {
+          "model": "KITKangu_KanguPlusPlus",
+          "computed": 0.0,
+          "published": 0.0,
+          "absolute_difference": 0.0
+        },
+        {
+          "model": "KITKangu_KanguS2SEasyUQ",
+          "computed": 0.0,
+          "published": 0.0,
+          "absolute_difference": 0.0
+        },
+        {
+          "model": "LP_LPM",
+          "computed": -0.01545566422463085,
+          "published": -0.015,
+          "absolute_difference": 0.0004556642246308501
+        },
+        {
+          "model": "MicroEnsemble_Huracan",
+          "computed": -0.005582200893588629,
+          "published": -0.006,
+          "absolute_difference": 0.000417799106411371
+        },
+        {
+          "model": "MicroEnsemble_MicroDuet",
+          "computed": 0.005683964165742683,
+          "published": 0.006,
+          "absolute_difference": 0.000316035834257317
+        },
+        {
+          "model": "MicroEnsemble_StillLearning",
+          "computed": -0.0062333999755535,
+          "published": -0.006,
+          "absolute_difference": 0.00023339997555349955
+        },
+        {
+          "model": "NSFNCAR_subCESMulator",
+          "computed": -0.4308832046465392,
+          "published": -0.431,
+          "absolute_difference": 0.00011679535346081904
+        },
+        {
+          "model": "Neuralio_NeuWeather",
+          "computed": -1.0941742071906804,
+          "published": -1.094,
+          "absolute_difference": 0.00017420719068028667
+        },
+        {
+          "model": "NewMeteor_BaseModel",
+          "computed": -0.2464018788583724,
+          "published": -0.246,
+          "absolute_difference": 0.00040187885837239534
+        },
+        {
+          "model": "NewMeteor_ExtraBaseModel",
+          "computed": -0.22506855653345537,
+          "published": -0.225,
+          "absolute_difference": 6.855653345536061e-05
+        },
+        {
+          "model": "NewMeteor_NewMet",
+          "computed": -0.20669381128080588,
+          "published": -0.207,
+          "absolute_difference": 0.00030618871919410595
+        },
+        {
+          "model": "NordicS2S_NordicS2S1",
+          "computed": -0.18947859540808265,
+          "published": -0.189,
+          "absolute_difference": 0.00047859540808264933
+        },
+        {
+          "model": "NordicS2S_NordicS2S2",
+          "computed": -0.07267062737906516,
+          "published": -0.073,
+          "absolute_difference": 0.00032937262093483965
+        },
+        {
+          "model": "NordicS2S_NordicS2S3",
+          "computed": -0.17774286440753606,
+          "published": -0.178,
+          "absolute_difference": 0.0002571355924639307
+        },
+        {
+          "model": "NvidiaDistill_DLESyM10K",
+          "computed": 0.016864731328185334,
+          "published": 0.017,
+          "absolute_difference": 0.00013526867181466729
+        },
+        {
+          "model": "Qronon_QRCML",
+          "computed": -0.543888717478646,
+          "published": -0.544,
+          "absolute_difference": 0.00011128252135406136
+        },
+        {
+          "model": "SAIS2S_SAI",
+          "computed": -0.30797836847028637,
+          "published": -0.308,
+          "absolute_difference": 2.163152971362825e-05
+        },
+        {
+          "model": "Sibyl_ClimGMM",
+          "computed": -1.0353947103291916,
+          "published": -1.035,
+          "absolute_difference": 0.00039471032919169424
+        },
+        {
+          "model": "Sibyl_ClimSDE",
+          "computed": -1.1180710530572684,
+          "published": -1.118,
+          "absolute_difference": 7.105305726828881e-05
+        },
+        {
+          "model": "SwissAIClimate_ESFM",
+          "computed": -0.1567751606327754,
+          "published": -0.157,
+          "absolute_difference": 0.00022483936722458853
+        },
+        {
+          "model": "TAICHI_TAICHIAI",
+          "computed": -0.723016967849702,
+          "published": -0.723,
+          "absolute_difference": 1.696784970206533e-05
+        },
+        {
+          "model": "UWAtmosNVIDIA_DLESyMS2Sv1",
+          "computed": -0.06573612880505508,
+          "published": -0.066,
+          "absolute_difference": 0.0002638711949449202
+        },
+        {
+          "model": "XindaL_ISOX",
+          "computed": -1.0879546723762696,
+          "published": -1.088,
+          "absolute_difference": 4.532762373044008e-05
+        },
+        {
+          "model": "scienceAI_findforecast",
+          "computed": -0.03837129463020483,
+          "published": -0.038,
+          "absolute_difference": 0.00037129463020483394
+        },
+        {
+          "model": "scienceAI_ngcm",
+          "computed": -0.010194196922821419,
+          "published": -0.01,
+          "absolute_difference": 0.00019419692282141889
+        },
+        {
+          "model": "scienceAI_zephyr",
+          "computed": -0.054642685302402905,
+          "published": -0.055,
+          "absolute_difference": 0.0003573146975970956
+        }
+      ]
+    }
+  ],
+  "negative_control": {
+    "accepted": false,
+    "coverage_complete": true,
+    "expected_count": 49,
+    "compared": 49,
+    "missing_computed": [],
+    "missing_reference": [],
+    "max_absolute_difference": 0.21082579280931957,
+    "tolerance": 0.0005,
+    "rows": [
+      {
+        "model": "AIFC_WRcast",
+        "computed": -0.41131164527165054,
+        "published": -0.296,
+        "absolute_difference": 0.11531164527165055
+      },
+      {
+        "model": "AIFS_AIFSgaia",
+        "computed": -0.011008418285512134,
+        "published": 0.045,
+        "absolute_difference": 0.05600841828551213
+      },
+      {
+        "model": "AIFS_AIFShera",
+        "computed": -0.02313125310713282,
+        "published": 0.061,
+        "absolute_difference": 0.08413125310713282
+      },
+      {
+        "model": "AIFS_AIFSthalassa",
+        "computed": -0.06331567873558064,
+        "published": 0.017,
+        "absolute_difference": 0.08031567873558064
+      },
+      {
+        "model": "CAMExpedition_SBCDiff",
+        "computed": -0.3346716410977164,
+        "published": -0.268,
+        "absolute_difference": 0.0666716410977164
+      },
+      {
+        "model": "CHAIMAEOUAZRI_ChaimaeModel",
+        "computed": -0.8684751756374467,
+        "published": -0.742,
+        "absolute_difference": 0.1264751756374467
+      },
+      {
+        "model": "CLINT_CLINTDD",
+        "computed": -0.056898188554329376,
+        "published": 0.003,
+        "absolute_difference": 0.05989818855432938
+      },
+      {
+        "model": "CLINT_CLINTMF",
+        "computed": -0.05050820371468401,
+        "published": 0.041,
+        "absolute_difference": 0.09150820371468402
+      },
+      {
+        "model": "CLINT_CLINTSE",
+        "computed": -0.2395607879324697,
+        "published": -0.101,
+        "absolute_difference": 0.1385607879324697
+      },
+      {
+        "model": "CMAandFDU_Fengshun",
+        "computed": 0.04045918626943035,
+        "published": 0.069,
+        "absolute_difference": 0.02854081373056966
+      },
+      {
+        "model": "CMAandFDU_FengshunAdjust",
+        "computed": -0.03792579076981051,
+        "published": 0.041,
+        "absolute_difference": 0.07892579076981052
+      },
+      {
+        "model": "CMAandFDU_FengshunHybrid",
+        "computed": -0.056296305580390005,
+        "published": 0.052,
+        "absolute_difference": 0.10829630558039
+      },
+      {
+        "model": "CliMA_CliMAWeather",
+        "computed": -0.02448387290206533,
+        "published": -0.025,
+        "absolute_difference": 0.0005161270979346724
+      },
+      {
+        "model": "CliMA_CliMAWeather2",
+        "computed": 0.006127113809159979,
+        "published": 0.029,
+        "absolute_difference": 0.022872886190840023
+      },
+      {
+        "model": "Fahamu_FahamuAIFSv1",
+        "computed": -0.017749424421995563,
+        "published": 0.028,
+        "absolute_difference": 0.04574942442199556
+      },
+      {
+        "model": "FengWuW2S_FengWu",
+        "computed": -0.054255479656895256,
+        "published": -0.14,
+        "absolute_difference": 0.08574452034310476
+      },
+      {
+        "model": "FengWuW2S_FengWu2",
+        "computed": -0.1176500661899007,
+        "published": -0.059,
+        "absolute_difference": 0.05865006618990071
+      },
+      {
+        "model": "FengWuW2S_FengWu3",
+        "computed": -0.025192388891713824,
+        "published": -0.068,
+        "absolute_difference": 0.04280761110828618
+      },
+      {
+        "model": "HAPPY_AZN",
+        "computed": -0.30001557513382116,
+        "published": -0.146,
+        "absolute_difference": 0.15401557513382116
+      },
+      {
+        "model": "HYT_WenDingNet",
+        "computed": -0.12166329400213916,
+        "published": -0.146,
+        "absolute_difference": 0.024336705997860836
+      },
+      {
+        "model": "IgnisNeuralis42_GCast42",
+        "computed": -0.01595219328686892,
+        "published": 0.015,
+        "absolute_difference": 0.03095219328686892
+      },
+      {
+        "model": "JR_slowMamba",
+        "computed": 0.008153272175876913,
+        "published": 0.041,
+        "absolute_difference": 0.03284672782412309
+      },
+      {
+        "model": "KITKangu_KanguParametricPrediction",
+        "computed": 0.0,
+        "published": 0.0,
+        "absolute_difference": 0.0
+      },
+      {
+        "model": "KITKangu_KanguPlusPlus",
+        "computed": 0.0,
+        "published": 0.0,
+        "absolute_difference": 0.0
+      },
+      {
+        "model": "KITKangu_KanguS2SEasyUQ",
+        "computed": 0.0,
+        "published": 0.0,
+        "absolute_difference": 0.0
+      },
+      {
+        "model": "LP_LPM",
+        "computed": -0.01545566422463085,
+        "published": 0.028,
+        "absolute_difference": 0.04345566422463085
+      },
+      {
+        "model": "MicroEnsemble_Huracan",
+        "computed": -0.005582200893588629,
+        "published": 0.029,
+        "absolute_difference": 0.03458220089358863
+      },
+      {
+        "model": "MicroEnsemble_MicroDuet",
+        "computed": 0.005683964165742683,
+        "published": 0.057,
+        "absolute_difference": 0.05131603583425732
+      },
+      {
+        "model": "MicroEnsemble_StillLearning",
+        "computed": -0.0062333999755535,
+        "published": 0.045,
+        "absolute_difference": 0.0512333999755535
+      },
+      {
+        "model": "NSFNCAR_subCESMulator",
+        "computed": -0.4308832046465392,
+        "published": -0.507,
+        "absolute_difference": 0.07611679535346083
+      },
+      {
+        "model": "Neuralio_NeuWeather",
+        "computed": -1.0941742071906804,
+        "published": -1.305,
+        "absolute_difference": 0.21082579280931957
+      },
+      {
+        "model": "NewMeteor_BaseModel",
+        "computed": -0.2464018788583724,
+        "published": -0.34,
+        "absolute_difference": 0.09359812114162763
+      },
+      {
+        "model": "NewMeteor_ExtraBaseModel",
+        "computed": -0.22506855653345537,
+        "published": -0.306,
+        "absolute_difference": 0.08093144346654463
+      },
+      {
+        "model": "NewMeteor_NewMet",
+        "computed": -0.20669381128080588,
+        "published": -0.193,
+        "absolute_difference": 0.013693811280805879
+      },
+      {
+        "model": "NordicS2S_NordicS2S1",
+        "computed": -0.18947859540808265,
+        "published": -0.194,
+        "absolute_difference": 0.004521404591917355
+      },
+      {
+        "model": "NordicS2S_NordicS2S2",
+        "computed": -0.07267062737906516,
+        "published": -0.045,
+        "absolute_difference": 0.027670627379065157
+      },
+      {
+        "model": "NordicS2S_NordicS2S3",
+        "computed": -0.17774286440753606,
+        "published": -0.07,
+        "absolute_difference": 0.10774286440753605
+      },
+      {
+        "model": "NvidiaDistill_DLESyM10K",
+        "computed": 0.016864731328185334,
+        "published": 0.072,
+        "absolute_difference": 0.05513526867181466
+      },
+      {
+        "model": "Qronon_QRCML",
+        "computed": -0.543888717478646,
+        "published": -0.539,
+        "absolute_difference": 0.004888717478645943
+      },
+      {
+        "model": "SAIS2S_SAI",
+        "computed": -0.30797836847028637,
+        "published": -0.368,
+        "absolute_difference": 0.060021631529713626
+      },
+      {
+        "model": "Sibyl_ClimGMM",
+        "computed": -1.0353947103291916,
+        "published": -1.103,
+        "absolute_difference": 0.06760528967080837
+      },
+      {
+        "model": "Sibyl_ClimSDE",
+        "computed": -1.1180710530572684,
+        "published": -1.224,
+        "absolute_difference": 0.10592894694273158
+      },
+      {
+        "model": "SwissAIClimate_ESFM",
+        "computed": -0.1567751606327754,
+        "published": -0.134,
+        "absolute_difference": 0.022775160632775404
+      },
+      {
+        "model": "TAICHI_TAICHIAI",
+        "computed": -0.723016967849702,
+        "published": -0.715,
+        "absolute_difference": 0.008016967849702072
+      },
+      {
+        "model": "UWAtmosNVIDIA_DLESyMS2Sv1",
+        "computed": -0.06573612880505508,
+        "published": 0.014,
+        "absolute_difference": 0.07973612880505508
+      },
+      {
+        "model": "XindaL_ISOX",
+        "computed": -1.0879546723762696,
+        "published": -1.229,
+        "absolute_difference": 0.14104532762373045
+      },
+      {
+        "model": "scienceAI_findforecast",
+        "computed": -0.03837129463020483,
+        "published": 0.014,
+        "absolute_difference": 0.05237129463020483
+      },
+      {
+        "model": "scienceAI_ngcm",
+        "computed": -0.010194196922821419,
+        "published": 0.004,
+        "absolute_difference": 0.01419419692282142
+      },
+      {
+        "model": "scienceAI_zephyr",
+        "computed": -0.054642685302402905,
+        "published": 0.002,
+        "absolute_difference": 0.056642685302402906
+      }
+    ],
+    "case": "20251120-p2 compared with 20251120-p1 reference",
+    "expected_rejection_observed": true
+  },
+  "normalization_notes_scored_without_modification": [],
+  "scope": "Two historical tas slices sharing one target week; no Omytea predictive skill claim.",
+  "data_access": "Three auxiliary files supplied separately through the official authorized channel; not redistributed here.",
+  "observation_classification": "Official AI-WQ-package conditional_obs_probs; not independent of that helper.",
+  "environment": {
+    "python": "3.12.12",
+    "platform": "macOS-15.8-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.5.2",
+      "xarray": "2026.7.0",
+      "netCDF4": "1.7.4",
+      "AI-WQ-package": "3.31"
+    }
+  },
+  "sha256": {
+    "code": "7dcda18bbf0f53771b65563a3e217e0f089c25960e7ccbbdd980c2449454a57a",
+    "archive": "0f9204ae0900569043adde1f32a22b78095fb10f21ee579abb927caf59941dd7",
+    "manifest": "1171b582fa8932706c3a8778458747b6239283ffad29541a5f5be08778b4f05d",
+    "references": "dbf8cdb2c694e15c0f0759226bce600ae43b3e71a158a0d85375755087193259"
+  }
+}
