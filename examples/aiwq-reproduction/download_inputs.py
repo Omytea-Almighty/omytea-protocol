@@ -83,7 +83,7 @@ def download():
         # Exclusive creation preserves an archive another process may have created.
         with destination.open("xb") as output, archive_path.open("rb") as source:
             shutil.copyfileobj(source, output)
-    print("Created inputs.tar.gz; auxiliary files still require your own authorized access.")
+    print("Created inputs.tar.gz; the three hash-pinned auxiliary files are bundled in auxiliary/.")
 
 
 if __name__ == "__main__":

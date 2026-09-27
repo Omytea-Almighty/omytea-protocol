@@ -1,6 +1,6 @@
 # Data and software provenance
 
-Checked on 2026-09-22. This notice concerns this example, not every asset in the repository.
+Checked on 2026-09-22; auxiliary-data notice updated on 2026-09-27. This notice concerns this example, not every asset in the repository.
 
 ## Public participant forecasts
 
@@ -18,11 +18,21 @@ Dataset reference: ECMWF, *AI Weather Quest sub-seasonal forecasts*, accessed 20
 
 `references.json` contains three selected raw slices and derived participant-to-score maps from the official [leaderboard JSON](https://aiweatherquest.ecmwf.int/wp-content/themes/picostrap5-child-base/js/results_page/response.json). Its metadata records the actual acquisition timestamp and SHA-256 of the complete downloaded source document. Extraction, formatting and exclusion of separately identified unranked reference systems are the only changes; participant scores are unmodified. The [website terms](https://aiweatherquest.ecmwf.int/terms-of-use/) license its publicly accessible content under CC BY 4.0. ECMWF/AI Weather Quest attribution and the non-endorsement boundary apply here too.
 
-## Auxiliary files are not included
+## Bundled auxiliary files
 
-The land-sea mask, temperature quintile thresholds and observation file are described by their names, sizes and hashes only. Their exact-file redistribution permission has not been established. This is an unresolved permission question, not a claim that redistribution is prohibited. The participant-forecast portal licence is not assumed to cover these separate files.
+The three files below are included unchanged in `auxiliary/`. In response to our inquiry naming these files, ECMWF clarified on **2026-09-25** that all data accessed through the Quest is governed by [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and requested acknowledgement of ECMWF and AI Weather Quest. We checked the linked [ECMWF general terms](https://apps.ecmwf.int/datasets/licences/general/) on 2026-09-27. This correspondence summary is reported by the maintainer; the private email is not republished here. The public terms and attribution obligations apply; the reply is not an endorsement of this software or its results.
 
-Use your own authorized access through the [official evaluation-data documentation](https://ecmwf-ai-weather-quest.readthedocs.io/en/latest/forecast_evaluation.html). We distribute no registration password, credential-bearing URL or auxiliary NetCDF bytes. The code reads them only when the user supplies `--auxiliary-dir`, and rejects versions that differ from the documented hashes. ERA5/ERA5T origin alone is not used as authorization to mirror these precise preprocessed files.
+| File | Bytes | SHA-256 |
+|---|---:|---|
+| `land_sea_mask_1pt5DEG.nc` | 60448 | `80e9265b2a2e39fc24b4505a0a520dd720a3847d3afe3d482db6a31031245da8` |
+| `tas_20yrCLIM_WEEKLYMEAN_quintiles_20251215.nc` | 945676 | `9cbc43d0ba4ec92b811144dfc66b34e51b3a8226d524acc55a2c505cfa618e08` |
+| `tas_obs_WEEKLYMEAN_20251215.nc` | 118948 | `f8f1e057c3e84badc40d4e6bd26a4a745567a3595cd3cbda3d9f1b0b08a8fd3f` |
+
+Source: ECMWF AI Weather Quest evaluation-data service, described in the [official evaluation-data documentation](https://ecmwf-ai-weather-quest.readthedocs.io/en/latest/forecast_evaluation.html). The files were obtained through authorized participant access. The weekly observation and climatological thresholds are for the verification week beginning 2025-12-15. Redistribution retains the already-pinned versions, including their original metadata; no preprocessing, rounding or other byte changes have been made. This fixed subset is not a mirror of the evaluation service and contains no participant credentials or credential-bearing download URLs. A separate dataset DOI or stable public URL for these exact auxiliary versions was not supplied in the clarification.
+
+Copyright © 2025–2026 European Centre for Medium-Range Weather Forecasts (ECMWF). Source: [ECMWF](https://www.ecmwf.int/) and **AI Weather Quest**. This data is published under a [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/), together with the [ECMWF general terms](https://apps.ecmwf.int/datasets/licences/general/).
+
+These data and results are based on data and products of the European Centre for Medium-Range Weather Forecasts (ECMWF). ECMWF does not accept any liability whatsoever for any error or omission in the data, their availability, or for any loss or damage arising from their use. The data are provided as-is. Retain the source, copyright, licence and disclaimer notices and indicate any later modifications. The code defaults to the bundled directory and rejects any bytes that differ from the manifest; `--auxiliary-dir` remains available for an identical local copy.
 
 ## Official observation-classification dependency
 

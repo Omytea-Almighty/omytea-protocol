@@ -1,8 +1,8 @@
 # Can we reproduce the published score?
 
-Omytea scoring case · 22 September 2026
+Omytea scoring case · 22 September 2026 · data access updated 27 September 2026
 
-**Public code, input manifests and results; three official inputs require separate authorized access.**
+**Code, input manifests, results and the three auxiliary inputs are included. Participant forecasts download directly from ECMWF without credentials.**
 
 We recomputed two historical AI Weather Quest temperature (`tas`) score slices from participant forecasts. Every participant in these two published slices is accounted for, and every recomputed score agrees within the official table's three-decimal rounding interval. A deliberately wrong forecast-window comparison is rejected by the same numerical check.
 
@@ -18,15 +18,15 @@ Both positive cases have zero missing participants on either side. The threshold
 
 ## Reproduce
 
-**Data prerequisite:** the included downloader retrieves 93 public participant forecasts directly from ECMWF and checks every file against the manifest. Forecast binaries are not stored in Git. This package does **not** redistribute the three official auxiliary files. You must obtain those through ECMWF's authorized participant channel. Their precise redistribution permission has not been established by this project. This is therefore **not an anonymous, one-command, complete-data reproduction package**.
+**Data acquisition:** the included downloader retrieves 93 public participant forecasts directly from ECMWF and checks every file against the manifest. Forecast binaries are not stored in Git. The three unchanged official auxiliary files are included in `auxiliary/` under CC BY 4.0 following ECMWF's licence clarification of 25 September 2026. You do not need participant credentials or a separate auxiliary-data request for this fixed case. See [data provenance and notices](DATA-LICENSE.md).
 
-Follow the official [evaluation-data documentation](https://ecmwf-ai-weather-quest.readthedocs.io/en/latest/forecast_evaluation.html), using your own authorized access, and place these files in one directory:
+The bundled inputs described by the official [evaluation-data documentation](https://ecmwf-ai-weather-quest.readthedocs.io/en/latest/forecast_evaluation.html) are:
 
 - `land_sea_mask_1pt5DEG.nc`
 - `tas_20yrCLIM_WEEKLYMEAN_quintiles_20251215.nc`
 - `tas_obs_WEEKLYMEAN_20251215.nc`
 
-The manifest records exact sizes and SHA-256 values. An upstream revision with different bytes fails verification; it is not silently substituted. We do not promise that the upstream service currently serves the same historical versions. Contact [AI Weather Quest support](mailto:aiweatherquest@ecmwf.int) for authorized access or version questions. Never put access credentials in this repository.
+The manifest records exact sizes and SHA-256 values for all 96 files. Its `archive_member` field separates downloaded forecast-archive members from repository-bundled auxiliary files. An upstream revision or local edit with different bytes fails verification; it is not silently substituted. The optional `--auxiliary-dir` override accepts only those same three pinned versions. Never put access credentials in this repository.
 
 From this directory, with Python 3.12:
 
@@ -36,7 +36,7 @@ python3.12 -m venv .venv
 .venv/bin/python -m pip check
 .venv/bin/python -m unittest -v test_acceptance test_download_inputs
 .venv/bin/python download_inputs.py
-.venv/bin/python reproduce.py --auxiliary-dir /path/to/authorized/files --out reproduction-result.json
+.venv/bin/python reproduce.py --out reproduction-result.json
 ```
 
 The downloader needs about 92 MB of public downloads and creates a roughly 25 MB `inputs.tar.gz`; allow at least 250 MB of free space in addition to the Python environment. It contacts only the manifest's ECMWF HTTPS origin, rejects redirects and changed bytes, and refuses to overwrite an existing archive. Download once; subsequent scoring runs reuse the archive. If upstream files change or become unavailable, acquisition fails visibly.
@@ -63,4 +63,4 @@ The checks cover coverage loss, unrounded tolerance, nonfinite comparison values
 
 These results are based on data and products of the European Centre for Medium-Range Weather Forecasts (ECMWF). Forecasts belong to the original AI Weather Quest participants identified, with exact source URLs, in the manifest. AI Weather Quest is organized by ECMWF. There is no endorsement or affiliation implied by this reproduction.
 
-Code is Apache-2.0 under the repository [LICENSE](../../LICENSE). Forecast data and the publicly accessible leaderboard content are CC BY 4.0, subject to the applicable ECMWF terms. The archive is a selected subset with no changes to forecast bytes; extracted reference maps and recomputed scores are our transformations. See [DATA-LICENSE.md](DATA-LICENSE.md) for source notices, attribution, software provenance and the auxiliary-file boundary.
+Code is Apache-2.0 under the repository [LICENSE](../../LICENSE). Forecast data, the three bundled auxiliary files and the publicly accessible leaderboard content are CC BY 4.0, subject to the applicable ECMWF terms. The archive is a selected subset with no changes to forecast bytes; auxiliary file bytes are also unchanged. Extracted reference maps and recomputed scores are our transformations. See [DATA-LICENSE.md](DATA-LICENSE.md) for source notices, attribution and software provenance.

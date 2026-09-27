@@ -65,7 +65,7 @@ The specimen (`examples/specimen-receipt.json`) is clearly labeled
 An optional [real-data scoring reproduction](examples/aiwq-reproduction/) checks
 two historical AI Weather Quest temperature slices (44 + 49 comparisons) and a
 wrong-window negative control. It includes source manifests, code, results and
-a downloader for public forecasts; three official auxiliary files require authorized access.
+a downloader for public forecasts and three unchanged official auxiliary files under CC BY 4.0.
 It demonstrates bounded scoring reproducibility, not Omytea predictive skill.
 The optional example has numerical dependencies separate from this verifier.
 

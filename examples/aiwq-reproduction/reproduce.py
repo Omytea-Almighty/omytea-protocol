@@ -40,7 +40,7 @@ def unpack_verified(archive, manifest, destination):
             raise ValueError("Unsafe input path")
         if not 0 < entry["bytes"] <= 4_000_000:
             raise ValueError("Unexpected input size")
-    records = {name: entry for name, entry in all_records.items() if entry.get("distributed", True)}
+    records = {name: entry for name, entry in all_records.items() if entry.get("archive_member", True)}
     seen = set()
     with tarfile.open(archive, "r:gz") as stream:
         for member in stream:
@@ -195,7 +195,7 @@ def run(archive, manifest_path, references_path, auxiliary_dir):
     return {"status": "PASS" if passed else "FAIL", "cases": reports, "negative_control": negative,
             "normalization_notes_scored_without_modification": quality,
             "scope": "Two historical tas slices sharing one target week; no Omytea predictive skill claim.",
-            "data_access": "Three auxiliary files supplied separately through the official authorized channel; not redistributed here.",
+            "data_access": "Three unchanged ECMWF auxiliary files are bundled under CC BY 4.0; the 93 participant forecasts are downloaded from ECMWF. All input bytes are hash-verified.",
             "observation_classification": "Official AI-WQ-package conditional_obs_probs; not independent of that helper.",
             "environment": {"python": platform.python_version(), "platform": platform.platform(),
                             "packages": {name: importlib.metadata.version(name)
@@ -207,8 +207,8 @@ def run(archive, manifest_path, references_path, auxiliary_dir):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, default=Path("reproduction-result.json"))
-    parser.add_argument("--auxiliary-dir", type=Path, required=True,
-                        help="Directory containing the three official files listed in input-manifest.json; acquire through the authorized ECMWF channel.")
+    parser.add_argument("--auxiliary-dir", type=Path, default=HERE / "auxiliary",
+                        help="Directory containing the three hash-pinned official files; defaults to the bundled auxiliary directory.")
     args = parser.parse_args()
     try:
         report = run(HERE / "inputs.tar.gz", HERE / "input-manifest.json", HERE / "references.json", args.auxiliary_dir)

@@ -898,7 +898,7 @@
   },
   "normalization_notes_scored_without_modification": [],
   "scope": "Two historical tas slices sharing one target week; no Omytea predictive skill claim.",
-  "data_access": "Three auxiliary files supplied separately through the official authorized channel; not redistributed here.",
+  "data_access": "Three unchanged ECMWF auxiliary files are bundled under CC BY 4.0; the 93 participant forecasts are downloaded from ECMWF. All input bytes are hash-verified.",
   "observation_classification": "Official AI-WQ-package conditional_obs_probs; not independent of that helper.",
   "environment": {
     "python": "3.12.12",
@@ -911,9 +911,9 @@
     }
   },
   "sha256": {
-    "code": "7dcda18bbf0f53771b65563a3e217e0f089c25960e7ccbbdd980c2449454a57a",
+    "code": "19e834772ef1cdec1049e35a2e09b0f41ae34adaca5f5d0b8bce76dbe713f1ad",
     "archive": "0f9204ae0900569043adde1f32a22b78095fb10f21ee579abb927caf59941dd7",
-    "manifest": "1171b582fa8932706c3a8778458747b6239283ffad29541a5f5be08778b4f05d",
+    "manifest": "457e38c17c68a78d1b264df9b84fe7a082b18666c50a77b1b21a8c6d079ebe27",
     "references": "dbf8cdb2c694e15c0f0759226bce600ae43b3e71a158a0d85375755087193259"
   }
 }
