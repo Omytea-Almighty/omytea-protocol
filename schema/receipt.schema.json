@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://omyteaai.com/schema/receipt.schema.json",
   "title": "Omytea Prediction Receipt",
-  "description": "A tamper-evident record of one machine prediction: frozen before the fact, resolved by an independent source, mechanically scored. The canonical frozen payload is the JSON object containing the fields receipt_id, created_at, question, prediction, resolution_deadline, resolution_source (plus specimen, if present), serialized with json.dumps(payload, sort_keys=True, separators=(',',':'), ensure_ascii=True) and hashed with SHA-256 to produce frozen_hash. Anyone can recompute the hash and the scores from the receipt alone.",
+  "description": "A tamper-evident record of one machine prediction: frozen before the fact, resolved by an independent source, mechanically scored. The canonical frozen payload is the JSON object containing the fields receipt_id, created_at, question, prediction, resolution_deadline, resolution_source (plus specimen and provenance, each only if present), serialized with json.dumps(payload, sort_keys=True, separators=(',',':'), ensure_ascii=True) and hashed with SHA-256 to produce frozen_hash. Anyone can recompute the hash and the scores from the receipt alone. Timeline ordering (created_at < resolution_deadline; created_at < outcome.resolved_at) cannot be expressed in JSON Schema and is enforced by the reference verifier, which also warns when outcome.resolved_at is after resolution_deadline.",
   "type": "object",
   "required": [
     "version",
@@ -15,6 +15,20 @@
     "frozen_hash"
   ],
   "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "required": ["specimen"],
+        "properties": { "specimen": { "const": true } }
+      },
+      "then": {
+        "not": {
+          "required": ["provenance"],
+          "properties": { "provenance": { "const": "real" } }
+        }
+      }
+    }
+  ],
   "properties": {
     "version": {
       "description": "Receipt format version.",
@@ -27,7 +41,7 @@
       "minLength": 1
     },
     "created_at": {
-      "description": "Freeze time: when the prediction was committed, ISO 8601 UTC. Everything in the frozen payload was fixed at this moment.",
+      "description": "Freeze time: when the prediction was committed, ISO 8601 UTC. Everything in the frozen payload was fixed at this moment. Must be strictly earlier than resolution_deadline.",
       "type": "string",
       "format": "date-time"
     },
@@ -105,7 +119,11 @@
       "required": ["resolved_at"],
       "additionalProperties": false,
       "properties": {
-        "resolved_at": { "type": "string", "format": "date-time" },
+        "resolved_at": {
+          "description": "When the outcome was recorded, ISO 8601 UTC. Must be strictly later than created_at. A value after resolution_deadline is reported as a warning, not a failure: resolvers lag, and the verifier cannot tell lag from an outcome read outside the declared window.",
+          "type": "string",
+          "format": "date-time"
+        },
         "label": { "type": "string", "minLength": 1 },
         "value": { "type": "number" },
         "source_url": { "type": "string" }
@@ -151,6 +169,11 @@
     "specimen": {
       "description": "True if this receipt is an illustrative specimen, not a live track-record entry. Included in the frozen payload when present.",
       "type": "boolean"
+    },
+    "provenance": {
+      "description": "Issuer-declared origin of the prediction and outcome: `real` (a live prediction frozen before a real-world outcome resolved from the declared source), `synthetic` (generated or simulated data, not an observation of the world), or `fixture` (a test or demo artifact built to exercise the format). Included in the frozen payload when present, so it cannot be changed after freezing without breaking frozen_hash; a matching hash does not make the label true. Absent means unknown, as on every receipt that predates the field. A specimen receipt cannot declare `real`.",
+      "type": "string",
+      "enum": ["synthetic", "fixture", "real"]
     },
     "notes": {
       "description": "Free-text annotation. NOT part of the frozen payload.",

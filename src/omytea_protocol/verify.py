@@ -5,13 +5,44 @@ Usage:
     python -m omytea_protocol.verify receipt.json
 
 Exit code 0 when every check passes, 1 when any check fails, 2 when the
-input cannot be read or parsed.
+input cannot be read or parsed. Warnings are printed but never change the
+exit code.
 
 The verifier is deliberately dependency-free: the point of a receipt is
 that anyone can check it with nothing but the standard library. The
 formal interface is ``schema/receipt.schema.json`` (JSON Schema draft
 2020-12); this module implements the equivalent structural checks
 natively so no third-party validator is required.
+
+Timeline checks (not expressible in JSON Schema, so they live here):
+
+- FAIL ``timeline.frozen_before_deadline`` unless ``created_at`` is strictly
+  before ``resolution_deadline``. A prediction frozen at or after its own
+  horizon predicted nothing.
+- FAIL ``timeline.resolved_after_freeze`` unless ``outcome.resolved_at`` is
+  strictly after ``created_at``. An outcome recorded before, or at the same
+  instant as, the freeze contradicts the one property a receipt exists to
+  show: the prediction came first.
+- WARN ``timeline.late_resolution`` when ``outcome.resolved_at`` is after
+  ``resolution_deadline``. This is a warning, not a failure, because
+  ``resolved_at`` is when the resolution was recorded and the deadline is
+  when the outcome must be resolvable; honest resolvers lag (the shipped
+  specimen resolves 71 seconds after its deadline). The verifier cannot
+  tell latency from an outcome read outside the declared window, so it
+  reports the lag and leaves the judgement to the reader.
+- WARN ``timeline.future_created_at`` / ``timeline.future_resolved_at`` when
+  a timestamp is later than the verifier's clock by more than
+  ``CLOCK_SKEW_TOLERANCE``. A warning, not a failure, because the verdict
+  would otherwise depend on when verification runs: the same receipt would
+  fail today and pass next week.
+
+Timestamps without a UTC offset are read as UTC, as the schema documents.
+
+The optional ``provenance`` label (``synthetic`` | ``fixture`` | ``real``)
+is printed beside the result. It is the issuer's declaration: when present
+it is bound into ``frozen_hash``, so a passing hash shows the label was not
+changed after freezing, never that it is true. An absent label is reported
+as ``unknown`` and is not an error.
 """
 
 from __future__ import annotations
@@ -20,14 +51,17 @@ import hashlib
 import json
 import sys
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from typing import Any
 
 from omytea_protocol.scoring import brier_score, crps_from_quantiles, log_loss
 
 __all__ = [
     "FROZEN_FIELDS",
+    "OPTIONAL_FROZEN_FIELDS",
+    "PROVENANCE_VALUES",
     "SCORE_TOLERANCE",
+    "CLOCK_SKEW_TOLERANCE",
     "canonical_frozen_payload",
     "compute_frozen_hash",
     "validate_structure",
@@ -38,7 +72,8 @@ __all__ = [
 ]
 
 #: Fields that make up the canonical frozen payload, in the order they
-#: are documented. ``specimen`` is additionally included when present.
+#: are documented. ``OPTIONAL_FROZEN_FIELDS`` are additionally included
+#: when present.
 FROZEN_FIELDS: tuple[str, ...] = (
     "receipt_id",
     "created_at",
@@ -48,8 +83,19 @@ FROZEN_FIELDS: tuple[str, ...] = (
     "resolution_source",
 )
 
+#: Labels that join the frozen payload only when present, so receipts that
+#: omit them hash exactly as before. Stripping or relabelling one after
+#: freezing breaks ``frozen_hash``.
+OPTIONAL_FROZEN_FIELDS: tuple[str, ...] = ("specimen", "provenance")
+
+#: Allowed values of the optional ``provenance`` label. Absent means unknown.
+PROVENANCE_VALUES: tuple[str, ...] = ("synthetic", "fixture", "real")
+
 #: Absolute tolerance when comparing recorded scores against recomputed ones.
 SCORE_TOLERANCE = 1e-9
+
+#: How far past the verifier's clock a timestamp may sit before it is flagged.
+CLOCK_SKEW_TOLERANCE = timedelta(minutes=5)
 
 _PROBABILITY_SUM_TOLERANCE = 1e-6
 
@@ -62,8 +108,9 @@ _PROBABILITY_SUM_TOLERANCE = 1e-6
 def canonical_frozen_payload(receipt: dict[str, Any]) -> dict[str, Any]:
     """Extract the frozen payload: the fields committed at freeze time."""
     payload = {name: receipt[name] for name in FROZEN_FIELDS if name in receipt}
-    if "specimen" in receipt:
-        payload["specimen"] = receipt["specimen"]
+    for name in OPTIONAL_FROZEN_FIELDS:
+        if name in receipt:
+            payload[name] = receipt[name]
     return payload
 
 
@@ -98,6 +145,14 @@ def _is_iso_datetime(value: Any) -> bool:
     except ValueError:
         return False
     return True
+
+
+def _parse_utc(value: str) -> datetime:
+    """Parse an ISO 8601 timestamp, reading one without an offset as UTC."""
+    parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed
 
 
 def _validate_branches(branches: Any, problems: list[str]) -> None:
@@ -252,6 +307,15 @@ def validate_structure(receipt: Any) -> list[str]:
     if specimen is not None and not isinstance(specimen, bool):
         problems.append("specimen must be a boolean")
 
+    if "provenance" in receipt:
+        provenance = receipt["provenance"]
+        if provenance not in PROVENANCE_VALUES:
+            problems.append(
+                f"provenance must be one of {list(PROVENANCE_VALUES)}; got {provenance!r}"
+            )
+        elif specimen is True and provenance == "real":
+            problems.append("a specimen receipt cannot declare provenance 'real'")
+
     return problems
 
 
@@ -313,15 +377,45 @@ def _recompute_baseline(
 # ---------------------------------------------------------------------------
 
 
+_PROVENANCE_NOTES = {
+    "real": (
+        "issuer-declared; a passing frozen_hash shows the label was not changed "
+        "after freezing, not that it is true"
+    ),
+    "synthetic": (
+        "NOT evidence that any predicted event was observed, however cleanly "
+        "it verifies"
+    ),
+    "fixture": (
+        "test or demo artifact; NOT evidence that any predicted event was "
+        "observed, however cleanly it verifies"
+    ),
+    "unknown": (
+        "no provenance label, as on every receipt older than the field; "
+        "verification alone does not show this is a real prediction"
+    ),
+}
+
+
 @dataclass
 class VerificationReport:
-    """Outcome of verifying one receipt."""
+    """Outcome of verifying one receipt.
+
+    ``checks`` decide ``passed``; ``warnings`` are reported but never fail
+    a receipt. ``provenance`` is the declared label, or ``"unknown"``.
+    """
 
     receipt_path: str
     checks: list[tuple[str, bool, str]] = field(default_factory=list)
+    warnings: list[tuple[str, str]] = field(default_factory=list)
+    provenance: str = "unknown"
+    specimen: bool = False
 
     def add(self, name: str, ok: bool, detail: str) -> None:
         self.checks.append((name, ok, detail))
+
+    def warn(self, name: str, detail: str) -> None:
+        self.warnings.append((name, detail))
 
     @property
     def passed(self) -> bool:
@@ -332,17 +426,92 @@ class VerificationReport:
         for name, ok, detail in self.checks:
             tag = "PASS" if ok else "FAIL"
             lines.append(f"  [{tag}] {name}: {detail}")
+        for name, detail in self.warnings:
+            lines.append(f"  [WARN] {name}: {detail}")
         n = len(self.checks)
-        lines.append(
-            f"RESULT: {'PASS' if self.passed else 'FAIL'} "
-            f"({sum(1 for _, ok, _ in self.checks if ok)}/{n} checks passed)"
+        summary = f"{sum(1 for _, ok, _ in self.checks if ok)}/{n} checks passed"
+        if self.warnings:
+            count = len(self.warnings)
+            summary += f", {count} warning{'s' if count != 1 else ''}"
+        lines.append(f"RESULT: {'PASS' if self.passed else 'FAIL'} ({summary})")
+        provenance_line = (
+            f"PROVENANCE: {self.provenance} ({_PROVENANCE_NOTES[self.provenance]})"
         )
+        if self.specimen:
+            provenance_line += "; specimen: true (illustrative, not a live track-record entry)"
+        lines.append(provenance_line)
         return "\n".join(lines)
 
 
-def verify_receipt(receipt: dict[str, Any], receipt_path: str = "<memory>") -> VerificationReport:
-    """Run every verification check on a parsed receipt."""
+def _check_timeline(
+    receipt: dict[str, Any], report: VerificationReport, now: datetime
+) -> None:
+    created = _parse_utc(receipt["created_at"])
+    deadline = _parse_utc(receipt["resolution_deadline"])
+    horizon = (
+        f"created_at {receipt['created_at']} vs "
+        f"resolution_deadline {receipt['resolution_deadline']}"
+    )
+    if created < deadline:
+        report.add("timeline.frozen_before_deadline", True, f"{horizon}: frozen before its horizon")
+    else:
+        report.add(
+            "timeline.frozen_before_deadline",
+            False,
+            f"{horizon}: the prediction was frozen at or after its own horizon",
+        )
+    if created > now + CLOCK_SKEW_TOLERANCE:
+        report.warn(
+            "timeline.future_created_at",
+            f"created_at {receipt['created_at']} is later than the verifier's clock "
+            f"({now.isoformat()})",
+        )
+
+    outcome = receipt.get("outcome")
+    if outcome is None:
+        return
+    resolved = _parse_utc(outcome["resolved_at"])
+    order = f"created_at {receipt['created_at']} vs outcome.resolved_at {outcome['resolved_at']}"
+    if resolved > created:
+        report.add("timeline.resolved_after_freeze", True, f"{order}: resolved after freezing")
+    else:
+        report.add(
+            "timeline.resolved_after_freeze",
+            False,
+            f"{order}: the outcome is recorded at or before the moment the "
+            "prediction was frozen",
+        )
+    if resolved > deadline:
+        report.warn(
+            "timeline.late_resolution",
+            f"outcome.resolved_at {outcome['resolved_at']} is {resolved - deadline} after "
+            f"resolution_deadline {receipt['resolution_deadline']}; the verifier cannot "
+            "tell resolver latency from an outcome read outside the declared window",
+        )
+    if resolved > now + CLOCK_SKEW_TOLERANCE:
+        report.warn(
+            "timeline.future_resolved_at",
+            f"outcome.resolved_at {outcome['resolved_at']} is later than the verifier's "
+            f"clock ({now.isoformat()})",
+        )
+
+
+def verify_receipt(
+    receipt: dict[str, Any],
+    receipt_path: str = "<memory>",
+    now: datetime | None = None,
+) -> VerificationReport:
+    """Run every verification check on a parsed receipt.
+
+    ``now`` is the verification time used only for the future-timestamp
+    warnings; it defaults to the current UTC time.
+    """
     report = VerificationReport(receipt_path=receipt_path)
+    if isinstance(receipt, dict):
+        declared = receipt.get("provenance")
+        if declared in PROVENANCE_VALUES:
+            report.provenance = declared
+        report.specimen = receipt.get("specimen") is True
 
     problems = validate_structure(receipt)
     if problems:
@@ -361,6 +530,12 @@ def verify_receipt(receipt: dict[str, Any], receipt_path: str = "<memory>") -> V
             f"recorded {recorded_hash} != recomputed {recomputed_hash} "
             "(a frozen field was altered after freezing)",
         )
+
+    if now is None:
+        now = datetime.now(timezone.utc)
+    elif now.tzinfo is None:
+        now = now.replace(tzinfo=timezone.utc)
+    _check_timeline(receipt, report, now)
 
     outcome = receipt.get("outcome")
     if outcome is None:

@@ -45,16 +45,25 @@ Expected output:
 Receipt verification: examples/specimen-receipt.json
   [PASS] structure: receipt matches the expected shape
   [PASS] frozen_hash: recomputed sha256 matches (7ee02cec942e823f...)
+  [PASS] timeline.frozen_before_deadline: created_at 2026-06-30T18:00:00Z vs resolution_deadline 2026-06-30T18:01:00Z: frozen before its horizon
+  [PASS] timeline.resolved_after_freeze: created_at 2026-06-30T18:00:00Z vs outcome.resolved_at 2026-06-30T18:02:11Z: resolved after freezing
   [PASS] scores.brier: recomputed 0.27499999999999997 matches recorded value
   [PASS] scores.log_loss: recomputed 0.5978370007556204 matches recorded value
   [PASS] baseline_scores.uniform: recomputed scores match recorded values
-RESULT: PASS (5/5 checks passed)
+  [WARN] timeline.late_resolution: outcome.resolved_at 2026-06-30T18:02:11Z is 0:01:11 after resolution_deadline 2026-06-30T18:01:00Z; the verifier cannot tell resolver latency from an outcome read outside the declared window
+RESULT: PASS (7/7 checks passed, 1 warning)
+PROVENANCE: unknown (no provenance label, as on every receipt older than the field; verification alone does not show this is a real prediction); specimen: true (illustrative, not a live track-record entry)
 ```
 
 Now tamper with any frozen field in the specimen — a probability, the
 question, the deadline — and run it again: the hash check fails. Tamper with
-a recorded score instead: the score recomputation fails. That is the whole
-trust model.
+a recorded score instead: the score recomputation fails. Date the outcome
+before the freeze: the timeline check fails. That is the whole trust model.
+
+Warnings (`[WARN]`) are printed but never change the result or the exit
+code. The specimen's annotator recorded the outcome 71 seconds after the
+deadline, which is reported rather than failed; see
+[Timeline checks](#timeline-checks).
 
 The specimen (`examples/specimen-receipt.json`) is clearly labeled
 `"specimen": true` — it demonstrates the format and verification flow and is
@@ -98,6 +107,7 @@ The formal schema is [`schema/receipt.schema.json`](schema/receipt.schema.json)
 | `resolution_deadline` | yes | When the outcome must be resolvable by. |
 | `resolution_source` | yes | How the outcome is determined, independently of the predictor. |
 | `specimen` | yes, if present | Marks an illustrative receipt that is not a live entry. |
+| `provenance` | yes, if present | Issuer-declared origin: `real`, `synthetic`, or `fixture`. Absent = unknown. |
 | `frozen_hash` | — | SHA-256 of the canonical frozen payload (all "yes" rows above). |
 | `outcome` | no | Resolved outcome: `label` (branches) or `value` (quantiles), `resolved_at`, `source_url`. |
 | `scores` | no | Mechanical scores; recomputable from `prediction` + `outcome`. |
@@ -115,7 +125,39 @@ json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=True)
 
 and hashed with SHA-256 (hex digest). This is the only serialization rule in
 the protocol; `omytea_protocol.verify.compute_frozen_hash` implements it in a
-few lines.
+few lines. `specimen` and `provenance` join the payload only when present, so
+a receipt that omits them hashes exactly as it did before they existed.
+
+### Timeline checks
+
+JSON Schema cannot compare two fields, so the verifier checks ordering itself:
+
+| Check | Result | Rule |
+|---|---|---|
+| `timeline.frozen_before_deadline` | FAIL | `created_at` must be strictly before `resolution_deadline`. |
+| `timeline.resolved_after_freeze` | FAIL | `outcome.resolved_at` must be strictly after `created_at`. |
+| `timeline.late_resolution` | WARN | `outcome.resolved_at` is after `resolution_deadline`. |
+| `timeline.future_created_at` / `timeline.future_resolved_at` | WARN | A timestamp is more than 5 minutes past the verifier's clock. |
+
+A late resolution is a warning, not a failure: `resolved_at` records when the
+outcome was written down, the deadline is when it must be resolvable, and
+resolvers lag. The verifier cannot tell lag from an outcome read outside the
+declared window, so it prints the lag and leaves the judgement to you.
+Future timestamps are warnings because a failure would make the verdict
+depend on when you run the check. Timestamps without a UTC offset are read
+as UTC.
+
+### Provenance
+
+`provenance` says what kind of receipt this is: `real` (a live prediction
+frozen before a real-world outcome), `synthetic` (generated or simulated
+data), or `fixture` (a test or demo artifact). The verifier prints it on the
+line after the result, because a receipt can verify perfectly and still be
+evidence of nothing. The label is the issuer's declaration. Being inside
+`frozen_hash` means it cannot be changed after freezing without failing the
+hash; it does not make the label true. A receipt without the field is
+reported as `unknown`, which is not an error. A specimen cannot declare
+`real`.
 
 ## Scoring rules
 
@@ -150,7 +192,8 @@ python3 -m pytest
 
 The tests pin closed-form scoring values, check that the shipped specimen
 verifies, and check that tampered receipts (altered probabilities, altered
-outcomes, flattering scores, stripped specimen label, forged hash) fail.
+outcomes, flattering scores, stripped specimen label, forged hash, outcomes
+dated before the freeze, relabelled or stripped provenance) fail.
 
 ## Status
 

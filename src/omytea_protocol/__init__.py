@@ -22,6 +22,8 @@ __version__ = "0.1.0"
 # __main__), which would trigger a spurious RuntimeWarning from runpy.
 _VERIFY_EXPORTS = (
     "FROZEN_FIELDS",
+    "OPTIONAL_FROZEN_FIELDS",
+    "PROVENANCE_VALUES",
     "canonical_frozen_payload",
     "compute_frozen_hash",
     "validate_structure",

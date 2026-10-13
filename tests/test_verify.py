@@ -2,6 +2,7 @@
 
 import copy
 import json
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import pytest
@@ -9,6 +10,7 @@ import pytest
 from omytea_protocol.verify import (
     compute_frozen_hash,
     main,
+    recompute_scores,
     validate_structure,
     verify_receipt,
 )
@@ -214,3 +216,241 @@ def test_quantile_receipt_roundtrip():
     tampered = copy.deepcopy(receipt)
     tampered["prediction"]["quantiles"]["values"][2] = 13.0
     assert not verify_receipt(tampered).passed
+
+
+# ---------------------------------------------------------------------------
+# Timeline ordering
+# ---------------------------------------------------------------------------
+
+#: Fixed verification clock so the future-timestamp warnings are deterministic.
+VERIFIED_AT = datetime(2026, 10, 9, 12, 0, tzinfo=timezone.utc)
+
+
+def _branch_receipt(created_at, deadline, resolved_at=None, **labels):
+    """A freshly frozen, correctly scored branch receipt."""
+    receipt = {
+        "version": "0.1",
+        "receipt_id": "unit-timeline-0001",
+        "created_at": created_at,
+        "question": "Does the supplier confirm the delivery date by email before the deadline?",
+        "prediction": {
+            "branches": [
+                {"label": "yes", "probability": 0.7},
+                {"label": "no", "probability": 0.3},
+            ]
+        },
+        "resolution_deadline": deadline,
+        "resolution_source": {"description": "Supplier reply received in the agent mailbox."},
+        **labels,
+    }
+    receipt["frozen_hash"] = compute_frozen_hash(receipt)
+    if resolved_at is not None:
+        receipt["outcome"] = {"resolved_at": resolved_at, "label": "yes"}
+        receipt["scores"] = recompute_scores(receipt)
+    return receipt
+
+
+def _failed(report):
+    return {name for name, ok, _ in report.checks if not ok}
+
+
+def _warned(report):
+    return [name for name, _ in report.warnings]
+
+
+def test_well_ordered_receipt_has_no_timeline_findings():
+    receipt = _branch_receipt(
+        "2026-10-01T00:00:00Z", "2026-10-07T00:00:00Z", "2026-10-06T09:00:00Z"
+    )
+    report = verify_receipt(receipt, now=VERIFIED_AT)
+    assert report.passed, report.render()
+    assert report.warnings == []
+    names = [name for name, _, _ in report.checks]
+    assert "timeline.frozen_before_deadline" in names
+    assert "timeline.resolved_after_freeze" in names
+
+
+def test_outcome_resolved_before_freeze_fails(specimen):
+    # The outcome is dated one year before the prediction was frozen.
+    tampered = copy.deepcopy(specimen)
+    tampered["outcome"]["resolved_at"] = "2025-06-30T18:00:00Z"
+    assert tampered["outcome"]["resolved_at"] != specimen["outcome"]["resolved_at"]
+    report = verify_receipt(tampered, now=VERIFIED_AT)
+    assert not report.passed
+    assert _failed(report) == {"timeline.resolved_after_freeze"}
+    # resolved_at is not frozen, so the hash alone cannot catch this.
+    assert [ok for name, ok, _ in report.checks if name == "frozen_hash"] == [True]
+
+
+def test_outcome_resolved_at_the_freeze_instant_fails():
+    receipt = _branch_receipt(
+        "2026-10-08T18:31:52+00:00", "2026-10-14T18:00:00Z", "2026-10-08T18:31:52Z"
+    )
+    report = verify_receipt(receipt, now=VERIFIED_AT)
+    assert not report.passed
+    assert _failed(report) == {"timeline.resolved_after_freeze"}
+
+
+@pytest.mark.parametrize("created_at", ["2026-06-30T18:01:00Z", "2026-06-30T18:01:30Z"])
+def test_frozen_at_or_after_deadline_fails(specimen, created_at):
+    tampered = copy.deepcopy(specimen)
+    tampered["created_at"] = created_at  # deadline is 18:01:00Z, resolution 18:02:11Z
+    tampered["frozen_hash"] = compute_frozen_hash(tampered)
+    report = verify_receipt(tampered, now=VERIFIED_AT)
+    assert not report.passed
+    assert _failed(report) == {"timeline.frozen_before_deadline"}
+
+
+def test_resolution_after_deadline_is_a_warning_not_a_failure():
+    receipt = _branch_receipt(
+        "2026-10-08T18:31:52+00:00", "2026-10-14T18:00:00Z", "2027-01-01T00:00:00Z"
+    )
+    report = verify_receipt(receipt, now=datetime(2027, 2, 1, tzinfo=timezone.utc))
+    assert report.passed, report.render()
+    assert _warned(report) == ["timeline.late_resolution"]
+    rendered = report.render()
+    assert "[WARN] timeline.late_resolution" in rendered
+    assert "78 days, 6:00:00 after resolution_deadline" in rendered
+    assert "RESULT: PASS (6/6 checks passed, 1 warning)" in rendered
+
+
+def test_specimen_still_passes_with_its_resolution_lag_reported(specimen):
+    report = verify_receipt(specimen, now=VERIFIED_AT)
+    assert report.passed
+    assert _warned(report) == ["timeline.late_resolution"]
+    assert "0:01:11 after resolution_deadline" in dict(report.warnings)["timeline.late_resolution"]
+
+
+def test_future_resolved_at_is_a_warning():
+    # An outcome dated after the moment of verification.
+    receipt = _branch_receipt(
+        "2026-10-08T18:31:52+00:00", "2026-10-14T18:00:00Z", "2026-10-10T09:12:00Z"
+    )
+    report = verify_receipt(receipt, now=VERIFIED_AT)
+    assert report.passed, report.render()
+    assert _warned(report) == ["timeline.future_resolved_at"]
+
+
+def test_future_created_at_on_pending_receipt_is_a_warning():
+    receipt = _branch_receipt("2026-11-01T00:00:00Z", "2026-11-08T00:00:00Z")
+    report = verify_receipt(receipt, now=VERIFIED_AT)
+    assert report.passed, report.render()
+    assert _warned(report) == ["timeline.future_created_at"]
+
+
+def test_clock_skew_within_tolerance_is_not_flagged():
+    resolved = (VERIFIED_AT + timedelta(minutes=1)).isoformat()
+    receipt = _branch_receipt("2026-10-08T00:00:00Z", "2026-10-14T00:00:00Z", resolved)
+    assert verify_receipt(receipt, now=VERIFIED_AT).warnings == []
+
+
+def test_timestamps_without_offset_are_read_as_utc():
+    # Mixing naive and offset timestamps must not crash the comparison.
+    receipt = _branch_receipt(
+        "2026-10-01T00:00:00", "2026-10-07T00:00:00Z", "2026-10-06T09:00:00+00:00"
+    )
+    report = verify_receipt(receipt, now=VERIFIED_AT.replace(tzinfo=None))
+    assert report.passed, report.render()
+    assert report.warnings == []
+
+
+def test_cli_prints_warnings_and_provenance_without_failing(capsys):
+    exit_code = main([str(SPECIMEN_PATH)])
+    out = capsys.readouterr().out
+    assert exit_code == 0
+    assert "[WARN] timeline.late_resolution" in out
+    assert "RESULT: PASS (7/7 checks passed, 1 warning)" in out
+    assert "PROVENANCE: unknown" in out
+
+
+# ---------------------------------------------------------------------------
+# Provenance label
+# ---------------------------------------------------------------------------
+
+
+def test_absent_provenance_is_unknown_not_an_error(specimen):
+    assert "provenance" not in specimen
+    assert validate_structure(specimen) == []
+    # The optional field leaves every existing hash unchanged.
+    assert compute_frozen_hash(specimen) == (
+        "7ee02cec942e823f2b122d9d27d7a5ec9994fd546f962654771e85e2ade50f34"
+    )
+    report = verify_receipt(specimen, now=VERIFIED_AT)
+    assert report.passed
+    assert report.provenance == "unknown"
+    assert "PROVENANCE: unknown" in report.render()
+
+
+@pytest.mark.parametrize("label", ["synthetic", "fixture", "real"])
+def test_declared_provenance_is_reported_beside_the_result(label):
+    receipt = _branch_receipt(
+        "2026-10-01T00:00:00Z",
+        "2026-10-07T00:00:00Z",
+        "2026-10-06T09:00:00Z",
+        provenance=label,
+    )
+    report = verify_receipt(receipt, now=VERIFIED_AT)
+    assert report.passed, report.render()
+    assert report.provenance == label
+    lines = report.render().splitlines()
+    result_at = next(i for i, line in enumerate(lines) if line.startswith("RESULT:"))
+    provenance_line = lines[result_at + 1]
+    assert provenance_line.startswith(f"PROVENANCE: {label} (")
+    if label == "real":
+        assert "not that it is true" in provenance_line
+    else:
+        assert "NOT evidence" in provenance_line
+
+
+@pytest.mark.parametrize("bad", ["observed", "Real", "", None, ["real"]])
+def test_unknown_provenance_value_fails_structure(bad):
+    receipt = _branch_receipt("2026-10-01T00:00:00Z", "2026-10-07T00:00:00Z", provenance=bad)
+    assert any("provenance must be one of" in p for p in validate_structure(receipt))
+    report = verify_receipt(receipt, now=VERIFIED_AT)
+    assert not report.passed
+    assert report.provenance == "unknown"
+
+
+def test_relabelling_provenance_breaks_hash():
+    receipt = _branch_receipt(
+        "2026-10-01T00:00:00Z",
+        "2026-10-07T00:00:00Z",
+        "2026-10-06T09:00:00Z",
+        provenance="synthetic",
+    )
+    relabelled = copy.deepcopy(receipt)
+    relabelled["provenance"] = "real"
+    assert relabelled["provenance"] != receipt["provenance"]
+    report = verify_receipt(relabelled, now=VERIFIED_AT)
+    assert not report.passed
+    assert _failed(report) == {"frozen_hash"}
+
+
+def test_stripping_provenance_breaks_hash():
+    receipt = _branch_receipt(
+        "2026-10-01T00:00:00Z",
+        "2026-10-07T00:00:00Z",
+        "2026-10-06T09:00:00Z",
+        provenance="fixture",
+    )
+    stripped = copy.deepcopy(receipt)
+    del stripped["provenance"]
+    report = verify_receipt(stripped, now=VERIFIED_AT)
+    assert not report.passed
+    assert _failed(report) == {"frozen_hash"}
+    assert report.provenance == "unknown"
+
+
+def test_labelling_an_existing_receipt_after_freezing_breaks_hash(specimen):
+    labelled = copy.deepcopy(specimen)
+    labelled["provenance"] = "fixture"
+    report = verify_receipt(labelled, now=VERIFIED_AT)
+    assert not report.passed
+    assert _failed(report) == {"frozen_hash"}
+
+
+def test_specimen_cannot_declare_real_provenance():
+    receipt = _branch_receipt(
+        "2026-10-01T00:00:00Z", "2026-10-07T00:00:00Z", specimen=True, provenance="real"
+    )
+    assert "a specimen receipt cannot declare provenance 'real'" in validate_structure(receipt)
