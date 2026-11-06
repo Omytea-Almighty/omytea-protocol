@@ -171,7 +171,7 @@ with formulas and references in the docstrings. Lower is better throughout.
 | `log_loss` | logarithmic score, `-ln p(outcome)` (Good 1952) | branch predictions |
 | `crps_from_quantiles` | CRPS via the pinball-loss quantile decomposition (Gneiting & Ranjan 2011) | quantile predictions |
 | `calibration_coverage` | empirical prediction-interval coverage (Vovk et al. 2005) | track-record calibration reading |
-| `e_value_update` / `e_process_from_losses` | anytime-valid "forecaster beats baseline" evidence via testing-by-betting (Shafer 2021; Ramdas et al. 2023) | track-record comparison that stays valid under optional stopping |
+| `e_value_update` / `e_process_from_losses` | anytime-valid evidence comparing a forecaster with a baseline, via testing-by-betting (Shafer 2021; Ramdas et al. 2023) | track-record comparison that stays valid under optional stopping |
 
 Two honesty notes baked into the docstrings, worth repeating here:
 
