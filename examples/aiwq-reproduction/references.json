@@ -1,0 +1,1849 @@
+{
+  "source_url": "https://aiweatherquest.ecmwf.int/wp-content/themes/picostrap5-child-base/js/results_page/response.json",
+  "fetched_utc": "2026-09-22T08:27:26.337539+00:00",
+  "source_sha256": "550ab5ceca18b4b5476299ad988ddad535293521372ecfa188dc6adbba2e1b19",
+  "source_bytes": 24714725,
+  "exclusion": "Unranked Dynamical_S2SDatabase reference systems are excluded because their forecasts are not in the public participant corpus. No participant filtering.",
+  "scores": {
+    "20251127-p1": {
+      "CMAandFDU_Fengshun": 0.053,
+      "CMAandFDU_FengshunAdjust": -0.056,
+      "CMAandFDU_FengshunHybrid": -0.058,
+      "AIFS_AIFSgaia": 0.051,
+      "AIFS_AIFSthalassa": 0.017,
+      "AIFS_AIFShera": 0.007,
+      "UWAtmosNVIDIA_DLESyMS2Sv1": 0.018,
+      "MicroEnsemble_MicroDuet": 0.009,
+      "MicroEnsemble_Huracan": 0.006,
+      "MicroEnsemble_StillLearning": -0.0,
+      "LP_LPM": 0.006,
+      "JR_slowMamba": 0.004,
+      "KITKangu_KanguParametricPrediction": 0.0,
+      "KITKangu_KanguPlusPlus": 0.0,
+      "KITKangu_KanguS2SEasyUQ": 0.0,
+      "FengWuW2S_FengWu2": -0.007,
+      "FengWuW2S_FengWu": -0.019,
+      "IgnisNeuralis42_GCast42": -0.016,
+      "CliMA_CliMAWeather2": -0.019,
+      "CliMA_CliMAWeather": -0.038,
+      "scienceAI_ngcm": -0.024,
+      "scienceAI_findforecast": -0.035,
+      "scienceAI_zephyr": -0.063,
+      "NvidiaDistill_DLESyM10K": -0.034,
+      "CLINT_CLINTDD": -0.034,
+      "CLINT_CLINTMF": -0.047,
+      "CLINT_CLINTSE": -0.23,
+      "SwissAIClimate_ESFM": -0.051,
+      "NordicS2S_NordicS2S2": -0.076,
+      "NordicS2S_NordicS2S3": -0.13,
+      "NordicS2S_NordicS2S1": -0.159,
+      "Fahamu_FahamuAIFSv1": -0.124,
+      "NewMeteor_NewMet": -0.182,
+      "NewMeteor_ExtraBaseModel": -0.308,
+      "NewMeteor_BaseModel": -0.327,
+      "HAPPY_AZN": -0.255,
+      "CAMExpedition_SBCDiff": -0.323,
+      "AIFC_WRcast": -0.417,
+      "SAIS2S_SAI": -0.425,
+      "NSFNCAR_subCESMulator": -0.45,
+      "Qronon_QRCML": -0.489,
+      "Neuralio_NeuWeather": -0.804,
+      "TAICHI_TAICHIAI": -0.875,
+      "XindaL_ISOX": -1.096
+    },
+    "20251120-p2": {
+      "CMAandFDU_Fengshun": 0.04,
+      "CMAandFDU_FengshunAdjust": -0.038,
+      "CMAandFDU_FengshunHybrid": -0.056,
+      "NvidiaDistill_DLESyM10K": 0.017,
+      "JR_slowMamba": 0.008,
+      "CliMA_CliMAWeather2": 0.006,
+      "CliMA_CliMAWeather": -0.024,
+      "MicroEnsemble_MicroDuet": 0.006,
+      "MicroEnsemble_Huracan": -0.006,
+      "MicroEnsemble_StillLearning": -0.006,
+      "KITKangu_KanguS2SEasyUQ": 0.0,
+      "KITKangu_KanguParametricPrediction": 0.0,
+      "KITKangu_KanguPlusPlus": 0.0,
+      "scienceAI_ngcm": -0.01,
+      "scienceAI_findforecast": -0.038,
+      "scienceAI_zephyr": -0.055,
+      "AIFS_AIFSgaia": -0.011,
+      "AIFS_AIFShera": -0.023,
+      "AIFS_AIFSthalassa": -0.063,
+      "LP_LPM": -0.015,
+      "IgnisNeuralis42_GCast42": -0.016,
+      "Fahamu_FahamuAIFSv1": -0.018,
+      "FengWuW2S_FengWu3": -0.025,
+      "FengWuW2S_FengWu": -0.054,
+      "FengWuW2S_FengWu2": -0.118,
+      "CLINT_CLINTMF": -0.051,
+      "CLINT_CLINTDD": -0.057,
+      "CLINT_CLINTSE": -0.24,
+      "UWAtmosNVIDIA_DLESyMS2Sv1": -0.066,
+      "NordicS2S_NordicS2S2": -0.073,
+      "NordicS2S_NordicS2S3": -0.178,
+      "NordicS2S_NordicS2S1": -0.189,
+      "HYT_WenDingNet": -0.122,
+      "SwissAIClimate_ESFM": -0.157,
+      "NewMeteor_NewMet": -0.207,
+      "NewMeteor_ExtraBaseModel": -0.225,
+      "NewMeteor_BaseModel": -0.246,
+      "HAPPY_AZN": -0.3,
+      "SAIS2S_SAI": -0.308,
+      "CAMExpedition_SBCDiff": -0.335,
+      "AIFC_WRcast": -0.411,
+      "NSFNCAR_subCESMulator": -0.431,
+      "Qronon_QRCML": -0.544,
+      "TAICHI_TAICHIAI": -0.723,
+      "CHAIMAEOUAZRI_ChaimaeModel": -0.868,
+      "Sibyl_ClimGMM": -1.035,
+      "Sibyl_ClimSDE": -1.118,
+      "XindaL_ISOX": -1.088,
+      "Neuralio_NeuWeather": -1.094
+    },
+    "20251120-p1": {
+      "NvidiaDistill_DLESyM10K": 0.072,
+      "CMAandFDU_Fengshun": 0.069,
+      "CMAandFDU_FengshunHybrid": 0.052,
+      "CMAandFDU_FengshunAdjust": 0.041,
+      "AIFS_AIFShera": 0.061,
+      "AIFS_AIFSgaia": 0.045,
+      "AIFS_AIFSthalassa": 0.017,
+      "MicroEnsemble_MicroDuet": 0.057,
+      "MicroEnsemble_StillLearning": 0.045,
+      "MicroEnsemble_Huracan": 0.029,
+      "JR_slowMamba": 0.041,
+      "CLINT_CLINTMF": 0.041,
+      "CLINT_CLINTDD": 0.003,
+      "CLINT_CLINTSE": -0.101,
+      "CliMA_CliMAWeather2": 0.029,
+      "CliMA_CliMAWeather": -0.025,
+      "Fahamu_FahamuAIFSv1": 0.028,
+      "LP_LPM": 0.028,
+      "IgnisNeuralis42_GCast42": 0.015,
+      "UWAtmosNVIDIA_DLESyMS2Sv1": 0.014,
+      "scienceAI_findforecast": 0.014,
+      "scienceAI_ngcm": 0.004,
+      "scienceAI_zephyr": 0.002,
+      "KITKangu_KanguParametricPrediction": 0.0,
+      "KITKangu_KanguS2SEasyUQ": 0.0,
+      "KITKangu_KanguPlusPlus": 0.0,
+      "NordicS2S_NordicS2S2": -0.045,
+      "NordicS2S_NordicS2S3": -0.07,
+      "NordicS2S_NordicS2S1": -0.194,
+      "FengWuW2S_FengWu2": -0.059,
+      "FengWuW2S_FengWu3": -0.068,
+      "FengWuW2S_FengWu": -0.14,
+      "SwissAIClimate_ESFM": -0.134,
+      "HYT_WenDingNet": -0.146,
+      "HAPPY_AZN": -0.146,
+      "NewMeteor_NewMet": -0.193,
+      "NewMeteor_ExtraBaseModel": -0.306,
+      "NewMeteor_BaseModel": -0.34,
+      "CAMExpedition_SBCDiff": -0.268,
+      "AIFC_WRcast": -0.296,
+      "SAIS2S_SAI": -0.368,
+      "NSFNCAR_subCESMulator": -0.507,
+      "Qronon_QRCML": -0.539,
+      "TAICHI_TAICHIAI": -0.715,
+      "CHAIMAEOUAZRI_ChaimaeModel": -0.742,
+      "Sibyl_ClimGMM": -1.103,
+      "Sibyl_ClimSDE": -1.224,
+      "XindaL_ISOX": -1.229,
+      "Neuralio_NeuWeather": -1.305
+    }
+  },
+  "source_slices": [
+    {
+      "Competition period": "DJF 2025",
+      "Competition week": "Competition week 3 (Thu 27-Nov-2025)",
+      "week_index": 3,
+      "Forecast window": 1,
+      "Variable": "tas",
+      "RPSS type": "weekly",
+      "Publication time": "Fri 02-Jan-2026 00:00:00 UTC",
+      "Teams": [
+        {
+          "Teamname": "CMAandFDU",
+          "Team Rank": 1,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": 0.053,
+              "Model Name": "Fengshun",
+              "Model Rank": 1,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CMAandFDU_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.056,
+              "Model Name": "FengshunAdjust",
+              "Model Rank": 25,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CMAandFDU_02-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.058,
+              "Model Name": "FengshunHybrid",
+              "Model Rank": 26,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CMAandFDU_03-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "AIFS",
+          "Team Rank": 2,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": 0.051,
+              "Model Name": "AIFSgaia",
+              "Model Rank": 2,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-AIFS_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": 0.017,
+              "Model Name": "AIFSthalassa",
+              "Model Rank": 4,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-AIFS_03-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": 0.007,
+              "Model Name": "AIFShera",
+              "Model Rank": 6,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-AIFS_02-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "UWAtmosNVIDIA",
+          "Team Rank": 3,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": 0.018,
+              "Model Name": "DLESyMS2Sv1",
+              "Model Rank": 3,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-UWAtmosNVIDIA_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "MicroEnsemble",
+          "Team Rank": 4,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": 0.009,
+              "Model Name": "MicroDuet",
+              "Model Rank": 5,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-MicroEnsemble_03-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": 0.006,
+              "Model Name": "Huracan",
+              "Model Rank": 8,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-MicroEnsemble_02-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.0,
+              "Model Name": "StillLearning",
+              "Model Rank": 13,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-MicroEnsemble_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "LP",
+          "Team Rank": 5,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": 0.006,
+              "Model Name": "LPM",
+              "Model Rank": 7,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-LP_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "JR",
+          "Team Rank": 6,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": 0.004,
+              "Model Name": "slowMamba",
+              "Model Rank": 9,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-JR_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "KITKangu",
+          "Team Rank": 7,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": 0.0,
+              "Model Name": "KanguParametricPrediction",
+              "Model Rank": 10,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-KITKangu_03-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": 0.0,
+              "Model Name": "KanguPlusPlus",
+              "Model Rank": 10,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-KITKangu_02-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": 0.0,
+              "Model Name": "KanguS2SEasyUQ",
+              "Model Rank": 10,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-KITKangu_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "FengWuW2S",
+          "Team Rank": 8,
+          "Number of models": 2,
+          "Models": [
+            {
+              "RPSS": -0.007,
+              "Model Name": "FengWu2",
+              "Model Rank": 14,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-FengWuW2S_02-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.019,
+              "Model Name": "FengWu",
+              "Model Rank": 16,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-FengWuW2S_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Dynamical_S2SDatabase",
+          "Team Rank": "N/A",
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.014,
+              "Model Name": "multimodel_mean",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_07-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "IgnisNeuralis42",
+          "Team Rank": 9,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.016,
+              "Model Name": "GCast42",
+              "Model Rank": 15,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-IgnisNeuralis42_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "CliMA",
+          "Team Rank": 10,
+          "Number of models": 2,
+          "Models": [
+            {
+              "RPSS": -0.019,
+              "Model Name": "CliMAWeather2",
+              "Model Rank": 17,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CliMA_02-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.038,
+              "Model Name": "CliMAWeather",
+              "Model Rank": 22,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CliMA_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "scienceAI",
+          "Team Rank": 11,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": -0.024,
+              "Model Name": "ngcm",
+              "Model Rank": 18,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-scienceAI_03-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.035,
+              "Model Name": "findforecast",
+              "Model Rank": 21,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-scienceAI_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.063,
+              "Model Name": "zephyr",
+              "Model Rank": 27,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-scienceAI_02-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "NvidiaDistill",
+          "Team Rank": 12,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.034,
+              "Model Name": "DLESyM10K",
+              "Model Rank": 19,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NvidiaDistill_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "CLINT",
+          "Team Rank": 13,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": -0.034,
+              "Model Name": "CLINTDD",
+              "Model Rank": 20,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CLINT_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.047,
+              "Model Name": "CLINTMF",
+              "Model Rank": 23,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CLINT_02-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.23,
+              "Model Name": "CLINTSE",
+              "Model Rank": 33,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CLINT_03-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Dynamical_S2SDatabase",
+          "Team Rank": "N/A",
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.036,
+              "Model Name": "ECMWF",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "SwissAIClimate",
+          "Team Rank": 14,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.051,
+              "Model Name": "ESFM",
+              "Model Rank": 24,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-SwissAIClimate_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "NordicS2S",
+          "Team Rank": 15,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": -0.076,
+              "Model Name": "NordicS2S2",
+              "Model Rank": 28,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NordicS2S_02-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.13,
+              "Model Name": "NordicS2S3",
+              "Model Rank": 30,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NordicS2S_03-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.159,
+              "Model Name": "NordicS2S1",
+              "Model Rank": 31,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NordicS2S_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Dynamical_S2SDatabase",
+          "Team Rank": "N/A",
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": -0.085,
+              "Model Name": "HMCR",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_08-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.113,
+              "Model Name": "ECCC",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_03-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.124,
+              "Model Name": "NOAA",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_06-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Fahamu",
+          "Team Rank": 16,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.124,
+              "Model Name": "FahamuAIFSv1",
+              "Model Rank": 29,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Fahamu_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Dynamical_S2SDatabase",
+          "Team Rank": "N/A",
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.167,
+              "Model Name": "JMA",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_05-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "NewMeteor",
+          "Team Rank": 17,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": -0.182,
+              "Model Name": "NewMet",
+              "Model Rank": 32,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NewMeteor_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.308,
+              "Model Name": "ExtraBaseModel",
+              "Model Rank": 35,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NewMeteor_03-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.327,
+              "Model Name": "BaseModel",
+              "Model Rank": 37,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NewMeteor_02-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Dynamical_S2SDatabase",
+          "Team Rank": "N/A",
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.208,
+              "Model Name": "KMA",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_04-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "HAPPY",
+          "Team Rank": 18,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.255,
+              "Model Name": "AZN",
+              "Model Rank": 34,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-HAPPY_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "CAMExpedition",
+          "Team Rank": 19,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.323,
+              "Model Name": "SBCDiff",
+              "Model Rank": 36,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CAMExpedition_02-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "AIFC",
+          "Team Rank": 20,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.417,
+              "Model Name": "WRcast",
+              "Model Rank": 38,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-AIFC_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "SAIS2S",
+          "Team Rank": 21,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.425,
+              "Model Name": "SAI",
+              "Model Rank": 39,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-SAIS2S_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "NSFNCAR",
+          "Team Rank": 22,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.45,
+              "Model Name": "subCESMulator",
+              "Model Rank": 40,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NSFNCAR_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Qronon",
+          "Team Rank": 23,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.489,
+              "Model Name": "QRCML",
+              "Model Rank": 41,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Qronon_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Neuralio",
+          "Team Rank": 24,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.804,
+              "Model Name": "NeuWeather",
+              "Model Rank": 42,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Neuralio_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "TAICHI",
+          "Team Rank": 25,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.875,
+              "Model Name": "TAICHIAI",
+              "Model Rank": 43,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-TAICHI_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "XindaL",
+          "Team Rank": 26,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -1.096,
+              "Model Name": "ISOX",
+              "Model Rank": 44,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-XindaL_01-quintile-t2m?base_time=202511270000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Competition period": "DJF 2025",
+      "Competition week": "Competition week 2 (Thu 20-Nov-2025)",
+      "week_index": 2,
+      "Forecast window": 2,
+      "Variable": "tas",
+      "RPSS type": "weekly",
+      "Publication time": "Fri 26-Dec-2025 00:00:00 UTC",
+      "Teams": [
+        {
+          "Teamname": "CMAandFDU",
+          "Team Rank": 1,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": 0.04,
+              "Model Name": "Fengshun",
+              "Model Rank": 1,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CMAandFDU_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.038,
+              "Model Name": "FengshunAdjust",
+              "Model Rank": 19,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CMAandFDU_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.056,
+              "Model Name": "FengshunHybrid",
+              "Model Rank": 24,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CMAandFDU_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "NvidiaDistill",
+          "Team Rank": 2,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": 0.017,
+              "Model Name": "DLESyM10K",
+              "Model Rank": 2,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NvidiaDistill_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "JR",
+          "Team Rank": 3,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": 0.008,
+              "Model Name": "slowMamba",
+              "Model Rank": 3,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-JR_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "CliMA",
+          "Team Rank": 4,
+          "Number of models": 2,
+          "Models": [
+            {
+              "RPSS": 0.006,
+              "Model Name": "CliMAWeather2",
+              "Model Rank": 4,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CliMA_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.024,
+              "Model Name": "CliMAWeather",
+              "Model Rank": 17,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CliMA_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "MicroEnsemble",
+          "Team Rank": 5,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": 0.006,
+              "Model Name": "MicroDuet",
+              "Model Rank": 5,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-MicroEnsemble_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.006,
+              "Model Name": "Huracan",
+              "Model Rank": 9,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-MicroEnsemble_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.006,
+              "Model Name": "StillLearning",
+              "Model Rank": 10,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-MicroEnsemble_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "KITKangu",
+          "Team Rank": 6,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": 0.0,
+              "Model Name": "KanguS2SEasyUQ",
+              "Model Rank": 6,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-KITKangu_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": 0.0,
+              "Model Name": "KanguParametricPrediction",
+              "Model Rank": 6,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-KITKangu_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": 0.0,
+              "Model Name": "KanguPlusPlus",
+              "Model Rank": 6,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-KITKangu_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "scienceAI",
+          "Team Rank": 7,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": -0.01,
+              "Model Name": "ngcm",
+              "Model Rank": 11,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-scienceAI_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.038,
+              "Model Name": "findforecast",
+              "Model Rank": 20,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-scienceAI_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.055,
+              "Model Name": "zephyr",
+              "Model Rank": 23,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-scienceAI_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "AIFS",
+          "Team Rank": 8,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": -0.011,
+              "Model Name": "AIFSgaia",
+              "Model Rank": 12,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-AIFS_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.023,
+              "Model Name": "AIFShera",
+              "Model Rank": 16,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-AIFS_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.063,
+              "Model Name": "AIFSthalassa",
+              "Model Rank": 26,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-AIFS_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "LP",
+          "Team Rank": 9,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.015,
+              "Model Name": "LPM",
+              "Model Rank": 13,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-LP_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "IgnisNeuralis42",
+          "Team Rank": 10,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.016,
+              "Model Name": "GCast42",
+              "Model Rank": 14,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-IgnisNeuralis42_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Fahamu",
+          "Team Rank": 11,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.018,
+              "Model Name": "FahamuAIFSv1",
+              "Model Rank": 15,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Fahamu_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "FengWuW2S",
+          "Team Rank": 12,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": -0.025,
+              "Model Name": "FengWu3",
+              "Model Rank": 18,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-FengWuW2S_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.054,
+              "Model Name": "FengWu",
+              "Model Rank": 22,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-FengWuW2S_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.118,
+              "Model Name": "FengWu2",
+              "Model Rank": 29,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-FengWuW2S_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Dynamical_S2SDatabase",
+          "Team Rank": "N/A",
+          "Number of models": 2,
+          "Models": [
+            {
+              "RPSS": -0.03,
+              "Model Name": "multimodel_mean",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_07-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.043,
+              "Model Name": "ECMWF",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "CLINT",
+          "Team Rank": 13,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": -0.051,
+              "Model Name": "CLINTMF",
+              "Model Rank": 21,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CLINT_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.057,
+              "Model Name": "CLINTDD",
+              "Model Rank": 25,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CLINT_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.24,
+              "Model Name": "CLINTSE",
+              "Model Rank": 36,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CLINT_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "UWAtmosNVIDIA",
+          "Team Rank": 14,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.066,
+              "Model Name": "DLESyMS2Sv1",
+              "Model Rank": 27,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-UWAtmosNVIDIA_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "NordicS2S",
+          "Team Rank": 15,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": -0.073,
+              "Model Name": "NordicS2S2",
+              "Model Rank": 28,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NordicS2S_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.178,
+              "Model Name": "NordicS2S3",
+              "Model Rank": 32,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NordicS2S_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.189,
+              "Model Name": "NordicS2S1",
+              "Model Rank": 33,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NordicS2S_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Dynamical_S2SDatabase",
+          "Team Rank": "N/A",
+          "Number of models": 2,
+          "Models": [
+            {
+              "RPSS": -0.09,
+              "Model Name": "HMCR",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_08-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.107,
+              "Model Name": "ECCC",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "HYT",
+          "Team Rank": 16,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.122,
+              "Model Name": "WenDingNet",
+              "Model Rank": 30,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-HYT_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Dynamical_S2SDatabase",
+          "Team Rank": "N/A",
+          "Number of models": 2,
+          "Models": [
+            {
+              "RPSS": -0.127,
+              "Model Name": "NOAA",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_06-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.147,
+              "Model Name": "JMA",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_05-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "SwissAIClimate",
+          "Team Rank": 17,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.157,
+              "Model Name": "ESFM",
+              "Model Rank": 31,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-SwissAIClimate_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Dynamical_S2SDatabase",
+          "Team Rank": "N/A",
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.16,
+              "Model Name": "KMA",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_04-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "NewMeteor",
+          "Team Rank": 18,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": -0.207,
+              "Model Name": "NewMet",
+              "Model Rank": 34,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NewMeteor_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.225,
+              "Model Name": "ExtraBaseModel",
+              "Model Rank": 35,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NewMeteor_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -0.246,
+              "Model Name": "BaseModel",
+              "Model Rank": 37,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NewMeteor_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "HAPPY",
+          "Team Rank": 19,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.3,
+              "Model Name": "AZN",
+              "Model Rank": 38,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-HAPPY_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "SAIS2S",
+          "Team Rank": 20,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.308,
+              "Model Name": "SAI",
+              "Model Rank": 39,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-SAIS2S_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "CAMExpedition",
+          "Team Rank": 21,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.335,
+              "Model Name": "SBCDiff",
+              "Model Rank": 40,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CAMExpedition_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "AIFC",
+          "Team Rank": 22,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.411,
+              "Model Name": "WRcast",
+              "Model Rank": 41,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-AIFC_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "NSFNCAR",
+          "Team Rank": 23,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.431,
+              "Model Name": "subCESMulator",
+              "Model Rank": 42,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NSFNCAR_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Qronon",
+          "Team Rank": 24,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.544,
+              "Model Name": "QRCML",
+              "Model Rank": 43,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Qronon_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "TAICHI",
+          "Team Rank": 25,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.723,
+              "Model Name": "TAICHIAI",
+              "Model Rank": 44,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-TAICHI_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "CHAIMAEOUAZRI",
+          "Team Rank": 26,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.868,
+              "Model Name": "ChaimaeModel",
+              "Model Rank": 45,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CHAIMAEOUAZRI_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Sibyl",
+          "Team Rank": 27,
+          "Number of models": 2,
+          "Models": [
+            {
+              "RPSS": -1.035,
+              "Model Name": "ClimGMM",
+              "Model Rank": 46,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Sibyl_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            },
+            {
+              "RPSS": -1.118,
+              "Model Name": "ClimSDE",
+              "Model Rank": 49,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Sibyl_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "XindaL",
+          "Team Rank": 28,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -1.088,
+              "Model Name": "ISOX",
+              "Model Rank": 47,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-XindaL_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Neuralio",
+          "Team Rank": 29,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -1.094,
+              "Model Name": "NeuWeather",
+              "Model Rank": 48,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Neuralio_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512211800"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Competition period": "DJF 2025",
+      "Competition week": "Competition week 2 (Thu 20-Nov-2025)",
+      "week_index": 2,
+      "Forecast window": 1,
+      "Variable": "tas",
+      "RPSS type": "weekly",
+      "Publication time": "Fri 26-Dec-2025 00:00:00 UTC",
+      "Teams": [
+        {
+          "Teamname": "NvidiaDistill",
+          "Team Rank": 1,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": 0.072,
+              "Model Name": "DLESyM10K",
+              "Model Rank": 1,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NvidiaDistill_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "CMAandFDU",
+          "Team Rank": 2,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": 0.069,
+              "Model Name": "Fengshun",
+              "Model Rank": 2,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CMAandFDU_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": 0.052,
+              "Model Name": "FengshunHybrid",
+              "Model Rank": 5,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CMAandFDU_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": 0.041,
+              "Model Name": "FengshunAdjust",
+              "Model Rank": 10,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CMAandFDU_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Dynamical_S2SDatabase",
+          "Team Rank": "N/A",
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": 0.064,
+              "Model Name": "multimodel_mean",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_07-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "AIFS",
+          "Team Rank": 3,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": 0.061,
+              "Model Name": "AIFShera",
+              "Model Rank": 3,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-AIFS_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": 0.045,
+              "Model Name": "AIFSgaia",
+              "Model Rank": 6,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-AIFS_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": 0.017,
+              "Model Name": "AIFSthalassa",
+              "Model Rank": 15,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-AIFS_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "MicroEnsemble",
+          "Team Rank": 4,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": 0.057,
+              "Model Name": "MicroDuet",
+              "Model Rank": 4,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-MicroEnsemble_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": 0.045,
+              "Model Name": "StillLearning",
+              "Model Rank": 7,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-MicroEnsemble_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": 0.029,
+              "Model Name": "Huracan",
+              "Model Rank": 12,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-MicroEnsemble_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "JR",
+          "Team Rank": 5,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": 0.041,
+              "Model Name": "slowMamba",
+              "Model Rank": 8,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-JR_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "CLINT",
+          "Team Rank": 6,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": 0.041,
+              "Model Name": "CLINTMF",
+              "Model Rank": 9,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CLINT_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": 0.003,
+              "Model Name": "CLINTDD",
+              "Model Rank": 20,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CLINT_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": -0.101,
+              "Model Name": "CLINTSE",
+              "Model Rank": 30,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CLINT_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "CliMA",
+          "Team Rank": 7,
+          "Number of models": 2,
+          "Models": [
+            {
+              "RPSS": 0.029,
+              "Model Name": "CliMAWeather2",
+              "Model Rank": 11,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CliMA_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": -0.025,
+              "Model Name": "CliMAWeather",
+              "Model Rank": 25,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CliMA_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Fahamu",
+          "Team Rank": 8,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": 0.028,
+              "Model Name": "FahamuAIFSv1",
+              "Model Rank": 13,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Fahamu_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "LP",
+          "Team Rank": 9,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": 0.028,
+              "Model Name": "LPM",
+              "Model Rank": 14,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-LP_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "IgnisNeuralis42",
+          "Team Rank": 10,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": 0.015,
+              "Model Name": "GCast42",
+              "Model Rank": 16,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-IgnisNeuralis42_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "UWAtmosNVIDIA",
+          "Team Rank": 11,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": 0.014,
+              "Model Name": "DLESyMS2Sv1",
+              "Model Rank": 17,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-UWAtmosNVIDIA_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "scienceAI",
+          "Team Rank": 12,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": 0.014,
+              "Model Name": "findforecast",
+              "Model Rank": 18,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-scienceAI_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": 0.004,
+              "Model Name": "ngcm",
+              "Model Rank": 19,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-scienceAI_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": 0.002,
+              "Model Name": "zephyr",
+              "Model Rank": 21,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-scienceAI_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "KITKangu",
+          "Team Rank": 13,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": 0.0,
+              "Model Name": "KanguParametricPrediction",
+              "Model Rank": 22,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-KITKangu_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": 0.0,
+              "Model Name": "KanguS2SEasyUQ",
+              "Model Rank": 22,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-KITKangu_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": 0.0,
+              "Model Name": "KanguPlusPlus",
+              "Model Rank": 22,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-KITKangu_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Dynamical_S2SDatabase",
+          "Team Rank": "N/A",
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": -0.004,
+              "Model Name": "ECMWF",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": -0.036,
+              "Model Name": "ECCC",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": -0.041,
+              "Model Name": "HMCR",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_08-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "NordicS2S",
+          "Team Rank": 14,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": -0.045,
+              "Model Name": "NordicS2S2",
+              "Model Rank": 26,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NordicS2S_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": -0.07,
+              "Model Name": "NordicS2S3",
+              "Model Rank": 29,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NordicS2S_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": -0.194,
+              "Model Name": "NordicS2S1",
+              "Model Rank": 36,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NordicS2S_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Dynamical_S2SDatabase",
+          "Team Rank": "N/A",
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.046,
+              "Model Name": "KMA",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_04-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "FengWuW2S",
+          "Team Rank": 15,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": -0.059,
+              "Model Name": "FengWu2",
+              "Model Rank": 27,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-FengWuW2S_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": -0.068,
+              "Model Name": "FengWu3",
+              "Model Rank": 28,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-FengWuW2S_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": -0.14,
+              "Model Name": "FengWu",
+              "Model Rank": 32,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-FengWuW2S_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Dynamical_S2SDatabase",
+          "Team Rank": "N/A",
+          "Number of models": 2,
+          "Models": [
+            {
+              "RPSS": -0.063,
+              "Model Name": "JMA",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_05-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": -0.071,
+              "Model Name": "NOAA",
+              "Model Rank": "N/A",
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Dynamical_S2SDatabase_06-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "SwissAIClimate",
+          "Team Rank": 16,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.134,
+              "Model Name": "ESFM",
+              "Model Rank": 31,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-SwissAIClimate_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "HYT",
+          "Team Rank": 17,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.146,
+              "Model Name": "WenDingNet",
+              "Model Rank": 33,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-HYT_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "HAPPY",
+          "Team Rank": 18,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.146,
+              "Model Name": "AZN",
+              "Model Rank": 34,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-HAPPY_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "NewMeteor",
+          "Team Rank": 19,
+          "Number of models": 3,
+          "Models": [
+            {
+              "RPSS": -0.193,
+              "Model Name": "NewMet",
+              "Model Rank": 35,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NewMeteor_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": -0.306,
+              "Model Name": "ExtraBaseModel",
+              "Model Rank": 39,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NewMeteor_03-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": -0.34,
+              "Model Name": "BaseModel",
+              "Model Rank": 40,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NewMeteor_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "CAMExpedition",
+          "Team Rank": 20,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.268,
+              "Model Name": "SBCDiff",
+              "Model Rank": 37,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CAMExpedition_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "AIFC",
+          "Team Rank": 21,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.296,
+              "Model Name": "WRcast",
+              "Model Rank": 38,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-AIFC_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "SAIS2S",
+          "Team Rank": 22,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.368,
+              "Model Name": "SAI",
+              "Model Rank": 41,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-SAIS2S_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "NSFNCAR",
+          "Team Rank": 23,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.507,
+              "Model Name": "subCESMulator",
+              "Model Rank": 42,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-NSFNCAR_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Qronon",
+          "Team Rank": 24,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.539,
+              "Model Name": "QRCML",
+              "Model Rank": 43,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Qronon_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "TAICHI",
+          "Team Rank": 25,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.715,
+              "Model Name": "TAICHIAI",
+              "Model Rank": 44,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-TAICHI_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "CHAIMAEOUAZRI",
+          "Team Rank": 26,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -0.742,
+              "Model Name": "ChaimaeModel",
+              "Model Rank": 45,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-CHAIMAEOUAZRI_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Sibyl",
+          "Team Rank": 27,
+          "Number of models": 2,
+          "Models": [
+            {
+              "RPSS": -1.103,
+              "Model Name": "ClimGMM",
+              "Model Rank": 46,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Sibyl_02-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            },
+            {
+              "RPSS": -1.224,
+              "Model Name": "ClimSDE",
+              "Model Rank": 47,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Sibyl_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "XindaL",
+          "Team Rank": 28,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -1.229,
+              "Model Name": "ISOX",
+              "Model Rank": 48,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-XindaL_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        },
+        {
+          "Teamname": "Neuralio",
+          "Team Rank": 29,
+          "Number of models": 1,
+          "Models": [
+            {
+              "RPSS": -1.305,
+              "Model Name": "NeuWeather",
+              "Model Rank": 49,
+              "Weblink": "https://charts.ecmwf.int/ai-weather-quest/products/s2s-competition-Neuralio_01-quintile-t2m?base_time=202511200000&projection=opencharts_global&quintile=1.0&valid_time=202512141800"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
